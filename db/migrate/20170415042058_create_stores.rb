@@ -4,7 +4,7 @@ class CreateStores < ActiveRecord::Migration[5.0]
       t.string :name
       t.text :description
       t.string :tagline
-      t.references :user, foreign_key: true
+      t.references :user, foreign_key: true, unique: true
 
       t.timestamps
     end

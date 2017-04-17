@@ -1,0 +1,78 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h2 class="page-header text-right"> Welcome, <small><%= @user.email %></small></h2>
+      <p class="lead">This is your profile page.. From here you can see all your orders and messages, etc.</p>
+
+      <div class="row">
+        <h3 class="page-header text-center">Store</h3>
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <%= link_to "Create a Store", new_store_path, class: "btn btn-link" %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <% if @user.store.present? %>
+                <%= link_to "Visit Store", store_path, class: "btn btn-link" %>
+              <% else %>
+                  <p>Create a store and see how you could make profits</p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <% if @user.store.present? %>
+                <%= link_to "Edit your store", edit_store_path, class: "btn btn-link" %>
+              <% else %>
+                  <p>Create a store and see how you could make profits</p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <h3 class="page-header text-center">Products</h3>
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <% if @user.store.present? %>
+                  <%= link_to "Add new product", new_product_path, class: "btn btn-link" %>
+              <% else %>
+                  <p>Create a store and start adding your awesome products</p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <% if @user.store.present? && @user.store.products %>
+                <%= link_to "See your products", class: "btn btn-link" %>
+              <% else %>
+                  <p>Add some products and watch your brand grow</p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <% if @user.store.present? %>
+                <%= link_to "Edit your store", edit_store_path, class: "btn btn-link" %>
+              <% else %>
+                  <p>Create a store and see how you could make profits</p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
