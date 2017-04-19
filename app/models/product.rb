@@ -7,4 +7,10 @@ class Product < ApplicationRecord
 
   validates :name, :price, :description, :image, :stock, presence: true
 
+
+
+  def self.search(params)
+    @products = Product.where("name LIKE ? or description LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%") if params[:search].present?
+    @products
+  end
 end

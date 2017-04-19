@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :stores, :except => [:index]
-  resources :products, :except => [:index]
+  resources :products do
+    collection do
+      get 'search'
+    end
+  end
   get 'pages/index'
 
   get 'pages/sell'
