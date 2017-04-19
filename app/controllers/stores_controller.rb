@@ -3,6 +3,8 @@ class StoresController < ApplicationController
   before_action :authenticate_user!
 
   def dashboard
+    @store = current_user.store
+    
   end
 
   def new
@@ -22,7 +24,7 @@ class StoresController < ApplicationController
     if @store.save
       respond_to do |format|
         if @store.save
-          format.html { redirect_to @store, notice: 'Store was successfully created.' }
+          format.html { redirect_to dashboard_stores_path, notice: 'Store was successfully created.' }
           format.json { render :show, status: :created, location: @store }
         else
           format.html { render :new }

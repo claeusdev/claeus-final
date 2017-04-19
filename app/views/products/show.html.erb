@@ -1,23 +1,30 @@
 <div class="container">
-  <div class="row">
-    <div class="col-sm-6">
-      <%= image_tag (@product.image.medium), class: "img-responsive" %>
-    </div>
-    <div class="col-sm-6">
-      <h2><%= @product.name %></h2>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-sm-6">
+          <%= image_tag (@product.image.medium), class: "img-responsive" %>
+        </div>
+        <div class="col-sm-6">
+          <h2><%= @product.name %></h2>
 
-      <p> <%= @product.description %></p>
-      <p> <%= number_to_currency(@product.price) %></p>
+          <p> <%= @product.description %></p>
+          <p> <%= number_to_currency(@product.price) %></p>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <% for asset in @product.assets %>
+          <div class="col-sm-6 img-responsive">
+            <%= image_tag(asset.image.medium)%>
+          </div>
+          <% end %>
+        </div>
+      </div>
+
     </div>
   </div>
+  
 </div>
 
-<div class="container">
-  <div class="row">
-    <% for asset in @product.assets %>
-    <div class="col-sm-6">
-      <%= image_tag(asset.image.medium) %>
-    </div>
-    <% end %>
-  </div>
-</div>

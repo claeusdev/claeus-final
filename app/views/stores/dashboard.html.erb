@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h2 class="page-header text-right">Claeus Merchant Admin Panel</h2>
+            <p><%= link_to "View store", store_path(current_user.store) %></p>
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <div class=" panel panel-danger">
+                    <div class="panel-heading">Orders</div>
+                        <div class="panel-body">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class=" panel panel-danger">
+                    <div class="panel-heading">Most views products</div>
+                        <div class="panel-body">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class=" panel panel-danger">
+                    <div class="panel-heading">Most favorited products</div>
+                        <div class="panel-body">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class=" panel panel-danger">
+                        <div class="panel-heading">Sales</div>
+                        <div class="panel-body">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1">
+                    <div class=" panel panel-danger">
+                        <div class="panel-heading">All Products</div>
+                        <div class="panel-body">
+                            <% @store.products.each do |p|%>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <%= image_tag(p.image.thumb)%>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading"><%= p.name %></h4>
+                                        <p><%= p.description %></p>
+                                        <p><%= p.price %></p>
+                                    </div>
+                                </div>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>

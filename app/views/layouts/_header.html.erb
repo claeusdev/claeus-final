@@ -17,14 +17,14 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div id="header-navbar-collapse" class="collapse navbar-collapse">
     <div class="navbar-form navbar-left">
-      <% unless current_page?(root_path) %>
+      <%#<% unless current_page?(root_path) %>
           <div class="input-group">
             <%= form_tag search_products_path,  method: :get do |f| %>
                 <%= text_field_tag :search, nil, placeholder: "What are you shopping for today?", class: " form-control" %>
                 <span class="input-group-btn"><%= submit_tag :search, class: "btn btn-danger" %></span>
             <% end %>
           </div>
-        <% end %>
+        <%#<% end %>
     </div>
     
       <div class=" navbar-right">

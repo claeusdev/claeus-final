@@ -1,18 +1,28 @@
+
+
 <section>
   <div class="container">
-    <div class="home-hero text-center-xs mt5-xs mb7 mb3-xs">
-      <div class="row v-center">
-        <div class="col-md-8 col-md-offset-2">
-          <div class="ph6 pt6 pt0-sm pt0-xs">
-          <h1 class="ma0">
-            Thoudsands of products in one place
-          </h1>
-          <div class="input-group pt6">
-          
+    <div class="row">
+      <div class="col-sm-5">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            Basic panel example
           </div>
+        </div>
+      </div>
+      <div class="col-sm-7">
+      <div class="panel panel-default">
+          <div class="panel-body">
+            <h3 class=" text-left">Just In</h3>
+            <ul class="list-group">
+              <% @latest_products.each do |p| %>
+                <li class="list-group-item"><%= link_to p.name, product_path(p) %></li>
+              <% end %>
+            </ul>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+

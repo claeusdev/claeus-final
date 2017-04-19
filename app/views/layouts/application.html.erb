@@ -9,7 +9,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="bg-grey">
     <%= render 'layouts/header' %>
       <% flash.each do |name, msg| %>
         <% if msg.is_a?(String) %>

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :stores, :except => [:index]
+  resources :stores, :except => [:index] do
+    collection do
+      get 'dashboard'
+    end
+  end
   resources :products do
     collection do
       get 'search'
