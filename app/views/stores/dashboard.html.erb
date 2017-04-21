@@ -1,63 +1,78 @@
+
 <div class="container">
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <h2 class="page-header text-right">Claeus Merchant Admin Panel</h2>
-            <p><%= link_to "View store", store_path(current_user.store) %></p>
-            <div class="row">
-                <div class="col-sm-12 col-md-6">
-                    <div class=" panel panel-danger">
-                    <div class="panel-heading">Orders</div>
-                        <div class="panel-body">
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h2 class="page-header text-right">Claeus Merchant Admin Panel</h2>
 
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6">
-                    <div class=" panel panel-danger">
-                    <div class="panel-heading">Most views products</div>
-                        <div class="panel-body">
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6">
-                    <div class=" panel panel-danger">
-                    <div class="panel-heading">Most favorited products</div>
-                        <div class="panel-body">
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6">
-                    <div class=" panel panel-danger">
-                        <div class="panel-heading">Sales</div>
-                        <div class="panel-body">
-
-                        </div>
-                    </div>
-                </div>
             </div>
-            <div class="row">
-                <div class="col-sm-10 col-sm-offset-1">
-                    <div class=" panel panel-danger">
-                        <div class="panel-heading">All Products</div>
-                        <div class="panel-body">
-                            <% @store.products.each do |p|%>
-                                <div class="media">
-                                    <div class="media-left">
-                                        <%= image_tag(p.image.thumb)%>
-                                    </div>
-                                    <div class="media-body">
-                                        <h4 class="media-heading"><%= p.name %></h4>
-                                        <p><%= p.description %></p>
-                                        <p><%= p.price %></p>
-                                    </div>
-                                </div>
-                            <% end %>
-                        </div>
-                    </div>
+        </div>
+        <div class="col-md-2">
+            <div class="panel panel-danger ">
+            <div class="panel-heading"><%= link_to "View store", store_path(current_user.store) %></div>
+                <div class="panel-body">
+                    <ul class="dash-pane">
+                        <li><a>Dashboard</a></li>
+                        <li><%= link_to "Products", edit_store_path(@store) %></li>
+                        <li><a href="#">Orders</a></li>
+                        <li><%= link_to "Settings", edit_store_path(@store) %></li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </div> 
+        <div class="col-md-10">
+            <div class="panel panel-danger">
+                <div class="panel-body">
+                    <div class="row">
+                        <h3 class="page-header text-center">Products</h3>
+                        <div class="col-md-4">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                <% if @store.present? %>
+                                    <%= link_to "Add new product", new_product_path, class: "btn btn-link" %>
+                                <% else %>
+                                    <p>Create a store and start adding your awesome products</p>
+                                <% end %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                <% if @store.present? && @store.products %>
+                                    <%= link_to "See your products", class: "btn btn-link" %>
+                                <% else %>
+                                    <p>Add some products and watch your brand grow</p>
+                                <% end %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <% if @store.present? %>
+                                        <%= link_to "Edit your store", edit_store_path(@store), class: "btn btn-link" %>
+                                    <% else %>
+                                        <p>Create a store and see how you could make profits</p>
+                                    <% end %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% @store.products.each do |p|%>
+                        <div class="media">
+                            <div class="media-left">
+                                <%= image_tag(p.image.thumb)%>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading"><%= p.name %></h4>
+                                <p><%= p.description %></p>
+                                <p><%= p.price %></p>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

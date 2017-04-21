@@ -1,28 +1,65 @@
-
-
-<section>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-5">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            Basic panel example
+<section class="container">
+  <div class="row">
+    <div class="col-sm-3 col-xs-12">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h3>Latest Products</h3>
+          <% @latest_products.each do |lp| %>
+            <div class="thumbnail">
+            <%= link_to image_tag(lp.image.medium), lp %>
+            <div class="caption">
+              <h3><%= link_to lp.name, lp %></h3>
+              <span class="amount">GHS <%= lp.price %></span>
+              <span class="label label-danger"><%= lp.store.name %></span>
+            </div>
           </div>
+          <% end %>
         </div>
       </div>
-      <div class="col-sm-7">
+    </div>
+    <div class="col-sm-9 col-xs-12">
       <div class="panel panel-default">
-          <div class="panel-body">
-            <h3 class=" text-left">Just In</h3>
-            <ul class="list-group">
-              <% @latest_products.each do |p| %>
-                <li class="list-group-item"><%= link_to p.name, product_path(p) %></li>
-              <% end %>
-            </ul>
-          </div>
+        <div class="panel-body">
+          <h3>Place ad slider here</h3>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<section>
+  <div class="container">
+    <h3>Browse categories</h3>
+    <div class="row">
+      <% @categories.each do |c| %>
+        <div class="col-xs-6 col-md-4 col-lg-2">
+          <div class="thumbnail">
+            <div class="caption">
+              <%= c.name %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+
+<section class="container">
+  <div class="row">
+    <div class="col-sm-5 col-xs-12">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h3>Store of the day</h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-7 col-xs-12">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h3>Trending</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

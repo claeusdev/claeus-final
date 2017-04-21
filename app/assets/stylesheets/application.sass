@@ -1,13 +1,25 @@
 @import 'bootstrap-sprockets'
 @import 'bootstrap'
+@import 'colors'
 @import 'stores'
 @import 'products'
 @import 'pages'
 
+
+
 body
-  font-family: "Montserrat", sans-serif
+  font-family: "Proxima Nova", sans-serif
   font-size: 15px
-  font-weight: normal
+  font-weight: 500
+  color: $main-text
+
+h1, h2, h3, h4, h5, h6
+  font-weight: 600
+
+a
+  color: inherit
+  &:hover
+    color: inherit
 
 
 .navbar-nav>li>a
@@ -73,3 +85,19 @@ body
     margin-top: -40px
     @media screen and (max-width: 768px)
       margin-left: -15px
+
+
+
+// Labels
+
+.label
+  padding: 5px 10px
+
+
+// Lists
+
+ul
+  padding-left: 0
+
+ul>li
+  list-style: none

@@ -1,7 +1,6 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <h3>Create a store</h3>
+<div class="">
+  <div class="panel panel-default">
+    <div class="panel-body">
       <%= simple_form_for(@store) do |f| %>
         <% if @store.errors.any? %>
           <div id="error_explanation">
@@ -15,29 +14,43 @@
           </div>
         <% end %>
 
-        <div class="form-group">
-          <%= f.label :name %>
-          <%= f.text_field :name, class: "form-control input-lg"%>
-          <small>Add a brand name or just a name for your store</small>
-        </div>
+        
+        <div class="container">
+          <div class="row">
+            <div class="text-center">
+              <h3>Lets create your store.</h3>
+              <p>Creating a store on <strong>claeus</strong> if free and fast - No fees or commitments</p>
+            </div>
+            <hr>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <%= f.label :name %>
+                <%= f.text_field :name, class: "form-control input-lg"%>
+                <small>Add a brand name or just a name for your store</small>
+              </div>
 
-        <div class="form-group">
-          <%= f.label :description %>
-          <%= f.text_area :description, class: "form-control input-lg"%>
-          <small>Add a description to your shop. This could be a summarized description of your brand.</small>
-        </div>
+              <div class="form-group">
+                <%= f.label :description %>
+                <%= f.text_area :description, class: "form-control input-lg"%>
+                <small>Add a description to your shop. This could be a summarized description of your brand.</small>
+              </div>
+            </div>
 
-        <div class="form-group">
-          <%= f.label :tagline %>
-          <%= f.text_field :tagline, class: "form-control input-lg"%>
-          <small>Add s tagline Eg. We power your fashion</small>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <%= f.label :tagline %>
+                <%= f.text_field :tagline, class: "form-control input-lg"%>
+                <small>Add s tagline Eg. We power your fashion</small>
+              </div
+            </div>
+          </div>
         </div>
         
-
         <div class="actions pt6">
           <%= f.submit class: "btn btn-danger btn-block btn-lg" %>
         </div>
       <% end %>
+      <hr>
     </div>
   </div>
 </div>

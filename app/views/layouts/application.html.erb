@@ -11,13 +11,15 @@
 
   <body class="bg-grey">
     <%= render 'layouts/header' %>
-      <% flash.each do |name, msg| %>
-        <% if msg.is_a?(String) %>
-          <div class="alert alert-<%= name == :notice ? "success" : "danger" %> alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <%= content_tag :div, msg, :id => "flash-#{name}" %>
-          </div>
-        <% end %>
+      <% if notice.present? %>
+        <aside class="alert alert-info">
+        <%= notice %>
+        </aside>
+      <% end %>
+      <% if alert.present? %>
+        <aside class="alert alert-danger">
+          <%= alert %>
+        </aside>
       <% end %>
     <%= yield %>
   </body>

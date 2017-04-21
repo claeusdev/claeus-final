@@ -1,8 +1,8 @@
 
-<div class="container">
-  <div class="store-front bg-white">
-    <div class="row">
-      <div class="store-front-header">
+<div class="">
+  <div class="store-front">
+    <div class="store-front-header">
+      <div class="row">
         <div class="col-sm-12">
           <h1 class="text-center"><%= @store.name.capitalize %></h1>
           <p class="text-center"><%= @store.tagline.capitalize %></p>
@@ -12,15 +12,15 @@
         </div>
       </div>
     </div>
-    <div class="bg-light">
+    <div class="bg-light container">
       <div class="row">
         <% @store.products.each do |product| %>
-        <div class="col-sm-6 col-md-4 col-lg-3 col-xs-6">
+        <div class="col-sm-6 col-md-4 col-lg-2 col-xs-6">
           <div class="thumbnail">
-            <%= image_tag (product.image.medium), class: "img-responsive" %>
+            <%= link_to image_tag (product.image.medium), class: "img-responsive" %>
             <div class="caption">
-              <h3><%= product.name %></h3>
-              <p><%= number_to_currency(product.price) %></p>
+              <h3><%= link_to product.name, product %></h3>
+              <p class="amount"><%= number_to_currency(product.price) %></p>
             </div>
           </div>
         </div>
