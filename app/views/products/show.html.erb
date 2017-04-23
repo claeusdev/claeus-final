@@ -7,16 +7,17 @@
           <%= image_tag (@product.image.medium), class: "img-responsive" %>
         </div>
         <div class="col-sm-6">
-           <span class="label label-success">
+           <span class="label label-danger">
           <%=  @product.category.name %>
         </span>
+        <p class="lead">By: <%= link_to @product.store.name.capitalize, store_path(@product.store), class: "btn btn-link" %></p>
         <h3><%= @product.name.capitalize %></h3>
         <h4> <%= number_to_currency(@product.price) %></h4>
         <label>Description:</label>
-        <p  class= "well item-desc "><%= @product.description%></p>
+        <p><%= @product.description%></p>
 
-        <button type="button" name="button" class="btn btn-primary">Contact Seller</button>
-        <button type="button" name="button" class="btn btn-primary">Add to cart</button>
+        <button type="button" name="button" class="btn btn-danger">Contact Seller</button>
+        <button type="button" name="button" class="btn btn-danger">Add to cart</button>
 
 
         <% if (user_signed_in?) && (current_user == @user) %>

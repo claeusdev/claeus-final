@@ -22,6 +22,7 @@ a
     color: inherit
 
 
+
 .navbar-nav>li>a
   padding-top: 10px
   padding-bottom: 10px
@@ -86,13 +87,24 @@ a
     @media screen and (max-width: 768px)
       margin-left: -15px
 
+// buttons
+.btn-link
+  color: $red
+  font-size: inherit
+  &:hover
+    color: $red
 
+// button danger override
 
-// Labels
+.btn-danger,
+.btn-danger:hover, 
+.btn-danger:active, 
+.btn-danger:visited,
+.btn-danger:focus 
+  background-color: $red
 
-.label
-  padding: 5px 10px
-
+.label-danger
+  background-color: $red
 
 // Lists
 
@@ -107,3 +119,13 @@ ul>li
 
 .section
   min-height: 500px
+
+
+.media-left
+  vertical-align: middle
+
+// Panels
+
+.panel-body
+  padding-top: 0
+
