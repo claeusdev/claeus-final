@@ -4,7 +4,8 @@ class StoresController < ApplicationController
 
   def dashboard
     @store = current_user.store
-    
+    @product = Product.new
+    5.times { @product.assets.build }
   end
 
   def new

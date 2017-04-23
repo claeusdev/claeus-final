@@ -1,5 +1,7 @@
 class Store < ApplicationRecord
   RESTRICTED_NAMES = %w[www]
+  
+  mount_uploader :logo, ImageUploader
 
   belongs_to :user
   has_many :products, dependent: :destroy

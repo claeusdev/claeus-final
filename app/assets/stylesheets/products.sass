@@ -2,22 +2,30 @@
 .pdt-assets
   padding: 10px
 
-.thumbnail
-  border: none
-  img
-    padding: 0
-    margin: 0
-    border: 0
+.thumbnail 
+  min-height: 100px
+  width: 100%
+  padding: 0
+  margin-bottom: 0 !important
+  border: 0
+  img 
+    width: 100%
+    height: 75%
+  
+  .caption 
+    h3 
+      text-align: left
+      font-size: 15px
+      color: $light-text
+    .amount
+      color: $red
+      font-weight: bold
+    
+  
+
 
 .caption
-  text-align: left
-  font-size: 12px
-  h3
-    font-size: 16px
-    color: $light-text
-  .amount
-    color: $red
-    font-weight: bold
+  
 
 .asset-img
   img

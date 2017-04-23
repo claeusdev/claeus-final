@@ -2,27 +2,37 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      <h2 class="page-header text-right"> Welcome, <small><%= @user.email %></small></h2>
-      
       <div class="">
         <div class="row">
-            <div class="col-md-2">
-                <div class="panel panel-danger ">
-                    <div class="panel-body">
-                        <ul class="dash-pane">
-                            <li><%= link_to "Profile", user_path(current_user) %></li>
-                            <li><a href="#">Purchases</a></li>
-                            <li><a href="#">Favorites</a></li>
-                            <li><%= link_to "Settings", edit_user_registration_path %></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-10">
+            
+            <div class="col-md-10 col-sm-offset-1">
                 <div class="panel panel-danger">
                     <div class="panel-body">
+                        <h2 class="page-header text-right"> Welcome, <small><%= @user.email %></small></h2>
+                        <ul class="nav nav-tabs">
+                            <li role="presentation" class="active"><a href="#profile" data-toggle="tab">Profile</a></li>
+                            <li role="presentation"><a href="#purchases" data-toggle="tab">Purchases</a></li>
+                            <li role="presentation"><a href="#settings" data-toggle="tab">Settigns</a></li>
+                        </ul>
+
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane fade in active" id="profile">
+                                <h3>Member Since: <%= current_user.created_at.strftime("%D") %></h3>
+                                <hr>
+
+                                <% if current_user.store.present? %>
+                                <%= link_to "Your Dashboard", dashboard_stores_path(current_user.store)%>
+                                <% else %>
+                                <%= link_to "Start Selling", pages_sell_path%>
+                                <% end %>
+                            
+                            </div>
+                            <div class="tab-pane fade" id="purchases">Content inside tab B</div>
+                            <div class="tab-pane fade" id="settings">Content inside tab C</div>
+                        </div>
                         
-                        <h3>Member Since: <%= current_user.created_at.strftime("%D") %></h3>
                         
                             
                     </div>

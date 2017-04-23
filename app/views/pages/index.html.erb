@@ -29,14 +29,13 @@
 
 <section>
   <div class="container">
-    <h3>Browse categories</h3>
+    <h3>Browse categories <span class="pull-right"><small><%= link_to "View all", categories_path %></small></span></h3>
+    
     <div class="row">
       <% @categories.each do |c| %>
         <div class="col-xs-6 col-md-4 col-lg-2">
-          <div class="thumbnail">
-            <div class="caption">
-              <%= c.name %>
-            </div>
+          <div class="cat-card">
+            <p><%= link_to c.name, c %></p>
           </div>
         </div>
       <% end %>
@@ -44,22 +43,3 @@
   </div>
 </section>
 
-
-<section class="container">
-  <div class="row">
-    <div class="col-sm-5 col-xs-12">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <h3>Store of the day</h3>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-7 col-xs-12">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <h3>Trending</h3>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>

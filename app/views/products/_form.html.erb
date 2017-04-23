@@ -1,0 +1,65 @@
+<%= simple_form_for @product , html: { multipart: true } do |f| %>
+          <% if @product.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+              <ul>
+              <% @product.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.label :name %>
+              <%= f.text_field :name, class: "form-control input-lg" %>
+              <small>Add a name to your item. eg. iPhone 7 32GB</small>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :description %>
+              <%= f.text_area :description, class: "form-control input-lg" %>
+              <small>Provide a very good description for your item. Remember good description attracts!</small>
+            </div>
+            <div class="form-group">
+              <%= f.label :category %>
+              <%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :name), {}, class: "form-control input-lg" %>
+              <small>Select a category.</small>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :price %>
+              <%= f.text_field :price, class: "form-control input-lg" %>
+              <small>Add your item price per unit.</small>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.label :stock %>
+              <%= f.text_field :stock, class: "form-control input-lg" %>
+              <small>How many of this product do you have to offer?</small>
+            </div>
+            <div class="form-group">
+              <%= f.label :image %>
+              <%= f.file_field :image %>
+              <small>Please add a main product image</small>
+            </div>
+
+            <div class="pdt-assets">
+              <p class="lead"> Please add more pictures</p>
+              <%= f.fields_for :assets do |asset_fields| %>
+              <% if asset_fields.object.new_record? %>
+                <p>
+                  <%= asset_fields.file_field :image, :multiple => true, name: "assets[image][]" %>
+                </p>
+              <% end %>
+              <% end %>
+            </div>
+          </div>
+          <div class="actions">
+            <%= f.submit class: "btn btn-danger btn-block btn-lg" %>
+          </div>
+      <% end %>
