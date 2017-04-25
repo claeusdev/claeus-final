@@ -2,6 +2,8 @@ class StoresController < ApplicationController
   before_action :set_store, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show]
 
+  impressionist actions: [:show]
+
   def dashboard
     @store = current_user.store
     @product = Product.new
@@ -14,6 +16,7 @@ class StoresController < ApplicationController
 
 
   def show
+    impressionist(@store)
   end
 
   def edit

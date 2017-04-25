@@ -12,4 +12,7 @@ class Store < ApplicationRecord
                   exclusion: { in: RESTRICTED_NAMES, message: 'restricted'}
 
   validates :description, :tagline, presence: true
+
+
+  is_impressionable
 end
