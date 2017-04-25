@@ -1,12 +1,14 @@
+
 <section class="container">
   <div class="row">
-    <div class="col-sm-3 col-xs-12">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <h3>Latest Products</h3>
-          
+    <div class="mt10">
+      <div class="col-sm-3 col-xs-12">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h3>Latest Products</h3>
+            
+          </div>
         </div>
-      </div>
     </div>
     <div class="col-sm-9 col-xs-12">
       <div class="panel panel-default">
@@ -14,22 +16,20 @@
           <h3>Just In ...</h3>
 
           <div class="">
-            <% @latest_products.each do |p|%>
+            <% @stores.each do |s|%>
               <div class="media">
                   <div class="media-left">
-                      <%= image_tag(p.image.thumb)%>
+                      <%= image_tag(s.logo.thumb)%>
                   </div>
                   <div class="media-body">
-                      <span class="label label-danger"><%= p.category.name %></span>
-                      <h4 class="media-heading"><%= link_to p.name, product_path(p) %></h4>
-                      <p class="amount"><%= number_to_currency(p.price) %></p>
+                    <h4 class="media-heading"><%= link_to s.name, store_path(s) %></h4>
                   </div>
               </div>
           <% end %>
           </div>
-          
         </div>
       </div>
+    </div>
     </div>
   </div>
 </section>

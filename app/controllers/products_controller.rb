@@ -7,6 +7,13 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @review = Review.where(product_id: @product)
+
+    if @review.blank?
+      @avg_rating = 0
+    else
+      @avg_rating = @product.reviews.average(:rating).round(2)
+    end
   end
 
   def search

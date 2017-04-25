@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     end
   end
   resources :products do
+    resources :reviews, except: [:index, :show]
+    
     collection do
       get 'search'
     end

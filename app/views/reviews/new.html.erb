@@ -1,0 +1,17 @@
+
+<%= simple_form_for [@product, @review] do |f| %>
+
+    <div id="star-rating">
+        <label>Rating</label>
+    </div>
+    <%= f.text_area :comment%>
+
+    <%= f.submit %>
+<% end %>
+
+<script>
+$('#star-rating').raty({
+    path: '/assets',
+    scoreName: 'review[rating]'
+});
+</script>

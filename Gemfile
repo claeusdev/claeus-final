@@ -24,9 +24,12 @@ gem 'simple_form'
 gem 'rmagick'
 gem 'carrierwave', '~> 1.0'
 gem "fog-aws"
-
-
 gem "faker"
+
+
+gem 'angularjs-rails', '~> 1.5', '>= 1.5.6'
+
+
 
 group :development, :test do
   gem 'byebug', platform: :mri

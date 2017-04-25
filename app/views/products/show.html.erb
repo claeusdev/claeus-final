@@ -12,13 +12,25 @@
         </span>
         <p class="lead">By: <%= link_to @product.store.name.capitalize, store_path(@product.store), class: "btn btn-link" %></p>
         <h3><%= @product.name.capitalize %></h3>
+        <span class="star-rating" data-score=<%= @avg_rating %>></span>
         <h4> <%= number_to_currency(@product.price) %></h4>
         <label>Description:</label>
         <p><%= @product.description%></p>
 
         <button type="button" name="button" class="btn btn-danger">Contact Seller</button>
         <button type="button" name="button" class="btn btn-danger">Add to cart</button>
-
+        <span>Already purchaed this product? <%= link_to "Write a review", new_product_review_path(@product)%></span>
+         <br><br>
+         <p class="lead"><strong>Reviews</strong></p>
+        <% if @review.blank? %>
+          <p>No reviews yet</p>
+        <% else %>
+          <% @review.each do |r| %>
+            <div class="star-rating" data-score=<%= r.rating %>></div>
+            <p><%= r.comment %></p>
+            <span>By: <%= r.user.email %></span>
+          <% end %>
+        <% end %>
 
         <% if (user_signed_in?) && (current_user == @user) %>
           <%= link_to "Edit", edit_product_path(@product) %>
