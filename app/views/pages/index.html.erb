@@ -1,12 +1,37 @@
+<div class="section bg-white home-header">
+  <div class="container">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+            <div class="">
 
+              <h2>Find your ideal item from their thoudsands of sellers</h2>
+
+              <%= form_tag search_products_path,  method: :get do |f| %>
+                <div class="input-group input-group-lg">
+                  <%= text_field_tag :search, nil, placeholder: "What are you shopping for today?", class: "form-control input-lg" %>
+                  <span class="input-group-btn"><%= submit_tag :search, class: "btn btn-danger btn-lg" %></span>
+                </div>
+              <% end %>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
 <section class="container">
   <div class="row">
     <div class="mt10">
       <div class="col-sm-3 col-xs-12">
         <div class="panel panel-default">
           <div class="panel-body">
-            <h3>Latest Products</h3>
-            
+            <h3>Featured Store</h3>
+              <% @featured_store.each do |s| %>
+                <div class="thumbnail">
+                <%= image_tag(s.logo.medium) %>
+                  <div class="caption">
+                    <%= link_to s.name , store_path(s)%>
+                  </div>
+                </div>
+              <% end %>
           </div>
         </div>
     </div>
@@ -16,13 +41,15 @@
           <h3>Just In ...</h3>
 
           <div class="">
-            <% @stores.each do |s|%>
+            <% @latest_products.each do |p|%>
               <div class="media">
                   <div class="media-left">
-                      <%= image_tag(s.logo.thumb)%>
+                      <%= image_tag(p.image.thumb)%>
                   </div>
                   <div class="media-body">
-                    <h4 class="media-heading"><%= link_to s.name, store_path(s) %></h4>
+                  <span class="label label-danger"><%=  p.category.name %></span>
+                    <h4 class="media-heading"><%= link_to p.name, product_path(p) %></h4>
+                    <span class="star-rating" data-score=<%= @avg_rating %>></span>
                   </div>
               </div>
           <% end %>
@@ -33,22 +60,3 @@
     </div>
   </div>
 </section>
-
-<section>
-  <div class="bg-white cat-section">
-    <div class="container">
-      <h2 class="heading">Browse categories <span class="pull-right"><small><%= link_to "View all", categories_path %></small></span></h2>
-    
-      <div class="row">
-        <% @categories.each do |c| %>
-          <div class="col-xs-6 col-md-4 col-lg-2">
-            <div class="cat-card">
-              <p><%= link_to c.name, c %></p>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</section>
-

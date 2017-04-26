@@ -1,18 +1,18 @@
-<div class="">
+<div class="container mt10">
   <div class="panel panel-default pt6">
     <div class="panel-body">
     <div class="container">
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-5">
           <%= image_tag (@product.image.medium), class: "img-responsive" %>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-7">
            <span class="label label-danger">
           <%=  @product.category.name %>
         </span>
         <p class="lead">By: <%= link_to @product.store.name.capitalize, store_path(@product.store), class: "btn btn-link" %></p>
         <h3><%= @product.name.capitalize %></h3>
-        <span class="star-rating" data-score=<%= @avg_rating %>></span>
+        <span class="star-rating" data-score=<%= @avg_rating %>></span> |  <span><%= @product.reviews.count %> Customer reviews</span>
         <h4> <%= number_to_currency(@product.price) %></h4>
         <label>Description:</label>
         <p><%= @product.description%></p>
@@ -44,9 +44,9 @@
       <div class="container">
         <div class="row">
           <% for asset in @product.assets %>
-          <div class="col-sm-6">
+          <div class="col-sm-4 col-sm-offset-1">
             <div class="thumbnail">
-              <%= image_tag(asset.image.asset)%>
+              <%= image_tag(asset.image.medium)%>
             </div>
           </div>
           <% end %>

@@ -2,6 +2,10 @@
 
 one:
   name: MyString
+  avatar: MyString
+  ancestry: MyString
 
 two:
   name: MyString
+  avatar: MyString
+  ancestry: MyString

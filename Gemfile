@@ -29,6 +29,8 @@ gem "faker"
 
 gem 'angularjs-rails', '~> 1.5', '>= 1.5.6'
 gem 'impressionist', '~> 1.5', '>= 1.5.1'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.1'
+gem 'ancestry', '~> 2.1'
 
 
 group :development, :test do

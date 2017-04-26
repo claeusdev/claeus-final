@@ -1,38 +1,117 @@
 .bg-grey
-    background-color: #ecf0f1
-
-
-
+	background-color: #ecf0f1
 
 // FOOTER STYLING
 
 .footer-primary 
-    background: #FFF
-    padding: 40px 0 0 0
-    font-size: 14px
-    line-height: 1.85
+	background: #FFF
+	padding: 40px 0 0 0
+	font-size: 14px
+	line-height: 1.85
 
 
 // Category section of homepage
 
 .cat-section 
-    margin-bottom: 20px
-    padding: 50px auto
-    min-height: 300px
+	margin-bottom: 20px
+	padding: 50px auto
+	min-height: 300px
 .cat-card
-    width: 100%
-    padding: 15px
-    background: #fff
-    margin: 10px 
-    text-align: center
+	width: 100%
+	padding: 15px
+	background: #fff
+	margin: 10px 
+	text-align: center
 
 
 
-// Sell Page styling
+// SELL PAge styling
 
-.sell-hero
-    background-image: url("pattern.svg")
-    height: 300px
-    background-size: cover
-    background-repeat: no-repeat
-    background-position: center
+.curve-container
+	position: relative
+	overflow: hidden
+
+.bg-gray-super-light
+	background: #f7f8fc
+
+
+.curve-container .curve
+	position: absolute
+	background: white
+	border-radius: 0 0 100% 100%
+	left: 0px
+	right: 0
+	top: -50%
+	bottom: 33%
+
+	@media screen and (max-width: 991px)
+		bottom: 66%
+		top: -33%
+
+.home-shadow-box
+	margin: 25px 0
+	img, .home-shadow-box .text
+		float: left
+
+home-shadow-box
+	.text
+		width: calc(100% - 70px)
+
+.shadow-box
+	box-shadow: 0 10px 25px 0 rgba(49,49,93,0.1)
+	border-radius: 5px
+
+.pa6
+	padding: 3.125rem
+
+.pl5
+	padding-left: 1.5625rem
+
+.icon
+	width: 100px
+
+.section
+	min-height: 400px
+	padding: 66px 0
+	@media screen and (min-width: 768px)
+		.section
+			padding: 100px 0
+	@media screen and (min-width: 992px)
+		.section
+			padding: 125px 0
+	@media screen and (min-width: 1200px)
+		.section
+			padding: 150px 0
+	@media screen and (max-width: 768px)
+		.section .section-header
+			margin-bottom: 33px
+			text-align: center
+	@media screen and (min-width: 768px)
+		.section .section-header
+			margin-bottom: 50px
+	@media screen and (min-width: 992px)
+		.section .section-header
+			margin-bottom: 62.5px
+	@media screen and (min-width: 1200px)
+		.section .section-header
+			margin-bottom: 75px
+	@media screen and (max-width: 768px)
+		.section .section-spacer
+			margin-bottom: 66px
+	@media screen and (min-width: 768px)
+		.section .section-spacer
+			margin-bottom: 100px
+	@media screen and (min-width: 992px)
+		.section .section-spacer
+			margin-bottom: 125px
+	@media screen and (min-width: 1200px)
+		.section .section-spacer
+			margin-bottom: 150px
+		.section .section-title
+			margin-top: 0
+		.section.bg-primary .section-header
+			color: #A8DAFF
+			label
+				font-size: 14px
+				color: #36434d
+				font-weight: 700

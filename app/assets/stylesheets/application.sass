@@ -1,11 +1,12 @@
 @import 'bootstrap-sprockets'
 @import 'bootstrap'
+@import 'font-awesome'
 @import 'colors'
 @import 'stores'
 @import 'products'
 @import 'pages'
 @import 'forms'
-
+@import 'home'
 
 body
   font-family: "Proxima Nova", sans-serif
@@ -49,6 +50,9 @@ a
 .pt6
   padding-top: 15px
 
+.pb5
+  padding-bottom: 1.5625rem
+
 .mt10
   margin-top: 10px
   
@@ -90,7 +94,12 @@ a
     @media screen and (max-width: 768px)
       margin-left: -15px
 
+
 // buttons
+
+.btn 
+  border-radius: 0
+  
 .btn-link
   color: $red
   font-size: inherit
@@ -120,8 +129,6 @@ ul>li
 
 // SECTIONS
 
-.section
-  min-height: 500px
 
 .media-left
   vertical-align: middle

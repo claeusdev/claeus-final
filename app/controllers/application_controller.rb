@@ -3,6 +3,12 @@ class ApplicationController < ActionController::Base
 
 
 
+  if @review.blank?
+    @avg_rating = 0
+  else
+    @avg_rating = @product.reviews.average(:rating).round(2)
+  end
+
 
  protected
    def after_sign_in_path_for(resource)
