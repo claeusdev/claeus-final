@@ -1,7 +1,5 @@
-<div class="container mt10">
-  <div class="panel panel-default pt6">
-    <div class="panel-body">
-    <div class="container">
+<div class=" section mt10 mb7">
+    <div class="container ">
       <div class="row">
         <div class="col-sm-5">
           <%= image_tag (@product.image.medium), class: "img-responsive" %>
@@ -13,7 +11,7 @@
         <p class="lead">By: <%= link_to @product.store.name.capitalize, store_path(@product.store), class: "btn btn-link" %></p>
         <h3><%= @product.name.capitalize %></h3>
         <span class="star-rating" data-score=<%= @avg_rating %>></span> |  <span><%= @product.reviews.count %> Customer reviews</span>
-        <h4> <%= number_to_currency(@product.price) %></h4>
+        <h4 class="amount"> <%= number_to_currency(@product.price) %></h4>
         <label>Description:</label>
         <p><%= @product.description%></p>
 
@@ -53,7 +51,5 @@
         </div>
       </div>
     </div>
-    </div>
-  </div>
 </div>
 

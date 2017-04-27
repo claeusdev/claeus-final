@@ -2,14 +2,13 @@
 <html ng-app>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Claeus"%></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Claeus - Enjoy a unique shopping experience"%></title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
-
-  <body class="bg-grey">
+  <body class="bg-white">
+  
     <%= render 'layouts/header' %>
       <% if notice.present? %>
         <aside class="alert alert-info">

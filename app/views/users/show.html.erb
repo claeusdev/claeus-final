@@ -1,5 +1,7 @@
 
-<div class="section mt10">
+
+<% if user_signed_in? && current_user == @user %>
+  <div class="section mt10">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -45,3 +47,7 @@
         </div>
     </div>
 </div>
+<% else %>
+
+    <p>This is your profile page</p>
+<% end %>

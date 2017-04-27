@@ -60,9 +60,6 @@ class StoresController < ApplicationController
       end
     end
 
-
-
-
   private
 
     def set_store
@@ -70,6 +67,6 @@ class StoresController < ApplicationController
     end
 
     def store_params
-      params.require(:store).permit(:name, :description, :tagline, :user_id)
+      params.require(:store).permit(:name, :description, :tagline, :user_id, :logo)
     end
 end
