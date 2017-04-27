@@ -14,4 +14,16 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require jquery.raty
-//= require angular
+//= require react
+//= require react_ujs
+//= require components
+
+
+$(document).ready(function() {
+    $(".add-product").hide();
+
+    $(".new-product").on("click", function() {
+        $(".add-product").slideDown();
+        $(".new-product").hide();
+    })
+});
