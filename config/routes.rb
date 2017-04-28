@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :categories
   resources :categories, :only => [:index, :show, :new]
 
   resources :stores, :except => [:index] do
@@ -7,6 +6,7 @@ Rails.application.routes.draw do
       get 'dashboard'
     end
   end
+  
   resources :products do
     resources :reviews, except: [:index, :show]
     
@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
+
   get 'pages/index'
 
   get 'pages/sell'
@@ -21,7 +22,7 @@ Rails.application.routes.draw do
   get 'pages/about'
 
   # get 'stores/dashboard'
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "user/registrations"}
   resources :users, :only => [:show]
   root "pages#index"
 end

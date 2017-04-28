@@ -36,6 +36,8 @@
               <li><%= link_to "Storefront", store_path(current_user.store) %></li>
             </ul>
           </li>
+          <% else %>
+            
           <% end %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %> <span class="caret"></span></a>
