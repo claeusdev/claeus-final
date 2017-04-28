@@ -12,7 +12,20 @@ class Store < ApplicationRecord
                   exclusion: { in: RESTRICTED_NAMES, message: 'restricted'}
 
   validates :description, :tagline, presence: true
+  validates :slug, uniqueness: true, presence: true
 
+  before_validation :generate_slug
+
+
+
+  def to_param
+    "#{id}-#{name}".parameterize
+  end
+
+
+  def generate_slug
+    self.slug ||= name.parameterize
+  end
 
   is_impressionable
 end

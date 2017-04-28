@@ -15,8 +15,11 @@
                     <p>Owns: <%= link_to @user.store.name.capitalize, store_path(@user.store) %></p>
                     <hr>
 
-                    <p class="about"><%= @user.about_me%></p>
+                    <p class="about"><%= @user.about_me %></p>
                 </div>
+                <% if user_signed_in? && current_user === @user %>
+                    <p><%= link_to "Edit Details" , edit_user_registration_path %></p>
+                <% end %>
             </div>
         </div>
     </div>

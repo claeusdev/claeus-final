@@ -1,4 +1,4 @@
-
+<% content_for :title, @store.name + " " + "on Claeus" %>
 <div class="">
   <div class="store-front">
     <div class="store-front-header">
@@ -6,7 +6,7 @@
         <div class="col-sm-12">
           <h1 class="text-center"><%= @store.name.capitalize %></h1>
           <p class="text-center"><%= @store.tagline.capitalize %></p>
-          <p class="text-center">Owned by: <%= link_to @store.user.email, user_path(@store.user) %></p>
+          <p class="text-center">Owned by: <%= link_to @store.user.username, user_path(@store.user) %></p>
           <%#<div class="store-cat">
             
           </div>%>

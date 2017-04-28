@@ -21,4 +21,5 @@ class User < ApplicationRecord
     "Hi, i'm very sorry but i am yet to write something useful about myself here."
   end
 
+
 end
