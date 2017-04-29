@@ -51,11 +51,11 @@
             <div class="pdt-assets">
               <p class="lead"> Please add more pictures</p>
               <%= f.fields_for :assets do |asset_fields| %>
-              <% if asset_fields.object.new_record? %>
-                <p>
-                  <%= asset_fields.file_field :image, :multiple => true, name: "assets[image][]" %>
-                </p>
-              <% end %>
+                <% if asset_fields.object.new_record? %>
+                  <p>
+                    <%= asset_fields.file_field :image, :multiple => true, name: "assets[image][]" %>
+                  </p>
+                <% end %>
               <% end %>
             </div>
           </div>

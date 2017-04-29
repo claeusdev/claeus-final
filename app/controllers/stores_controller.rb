@@ -8,10 +8,12 @@ class StoresController < ApplicationController
     @store = current_user.store
     @product = Product.new
     5.times { @product.assets.build }
+    
   end
 
   def new
     @store = Store.new
+    
   end
 
 

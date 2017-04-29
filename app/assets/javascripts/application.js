@@ -17,3 +17,14 @@
 //= require react
 //= require react_ujs
 //= require components
+
+
+$(document).ready(function() {
+    $(".add-product").hide();
+
+    $(".new-product").on("click", function() {
+        $(".add-product").show();
+    });
+
+
+});

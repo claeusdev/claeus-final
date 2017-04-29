@@ -7,8 +7,9 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @r = Review.new
     @review = Review.where(product_id: @product)
-
+  
     if @review.blank?
       @avg_rating = 0
     else

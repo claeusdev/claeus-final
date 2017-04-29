@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :categories, :only => [:index, :show, :new]
+  resources :categories
 
   resources :stores, :except => [:index] do
     collection do

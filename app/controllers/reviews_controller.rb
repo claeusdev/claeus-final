@@ -10,12 +10,11 @@ class ReviewsController < ApplicationController
     def create
         @review = current_user.reviews.build(review_params)
         @review.product = @product
+
         if @review.save
             redirect_to @product, notice: "You have successfully reviewed this product"
         end
     end
-
-
 
 
     private

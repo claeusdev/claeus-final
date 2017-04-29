@@ -12,7 +12,9 @@
                     <h2> Hey, i'm <%= @user.full_name %></h2>
                     <p><strong>Member Since: <%= @user.created_at.strftime("%D")%></strong> </p>
                     <span>100 Followers</span> | <span>12 groups</span>
-                    <p>Owns: <%= link_to @user.store.name.capitalize, store_path(@user.store) %></p>
+                    <% if @user.store %>
+                        <p>Owns: <%= link_to @user.store.name.capitalize, store_path(@user.store) %></p>
+                    <% end %>
                     <hr>
 
                     <p class="about"><%= @user.about_me %></p>
