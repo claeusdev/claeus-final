@@ -3,7 +3,7 @@
     <div class="container ">
       <div class="row">
         <div class="col-sm-5">
-          <%= image_tag (@product.image.medium), class: "img-responsive" %>
+          <%= image_tag @product.images[0].medium, class: "img-responsive" %>
         </div>
         <div class="col-sm-7">
            <span class="label label-danger">
@@ -43,10 +43,10 @@
       <br>
       <div class="container">
         <div class="row">
-          <% for asset in @product.assets %>
+          <% for image in @product.images %>
           <div class="col-sm-4 col-sm-offset-1">
-            <div class="thumbnail">
-              <%= image_tag(asset.image.medium)%>
+            <div class="img-responsive">
+              <%= image_tag image.asset %>
             </div>
           </div>
           <% end %>

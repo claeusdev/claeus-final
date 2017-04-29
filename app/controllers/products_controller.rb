@@ -3,7 +3,6 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    5.times { @product.assets.build }
   end
 
   def show
@@ -24,11 +23,9 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.store_id = current_user.store.id
+    
     respond_to do |format|
       if @product.save
-        params[:assets]['image'].each do |a|
-          @asset = @product.assets.create!(:image => a)
-       end
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
@@ -39,14 +36,14 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    5.times { @product.assets.build }
+    
   end
 
   def update
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
-        format.json { render :show, status: :ok, location: @listing }
+        format.json { render :show, status: :ok, location: @product }
       else
         format.html { render :edit }
         format.json { render json: @product.errors, status: :unprocessable_entity }
@@ -71,6 +68,6 @@ class ProductsController < ApplicationController
     end
 
     def product_params
-      params.require(:product).permit(:name, :description, :price, :store_id, :stock, :category_id, :image,  assets_attributes: [:id, :pproduct_id, :image])
+      params.require(:product).permit(:name, :description, :price, :store_id, :stock, :category_id, {images: []})
     end
 end

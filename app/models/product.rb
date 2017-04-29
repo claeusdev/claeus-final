@@ -1,13 +1,12 @@
 class Product < ApplicationRecord
-  mount_uploader :image, ImageUploader
+  mount_uploaders :images, ImageUploader
 
+  
   belongs_to :store
-  has_many :assets
   has_many :reviews
   belongs_to :category
-  accepts_nested_attributes_for :assets, :reject_if => lambda { |t| t['asset'].nil? }
 
-  validates :name, :price, :description, :image, :stock, presence: true
+  validates :name, :price, :description, :images, :stock, presence: true
   validates :slug, uniqueness: true, presence: true
 
   before_validation :generate_slug

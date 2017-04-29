@@ -7,8 +7,6 @@ class StoresController < ApplicationController
   def dashboard
     @store = current_user.store
     @product = Product.new
-    5.times { @product.assets.build }
-    
   end
 
   def new
@@ -27,15 +25,13 @@ class StoresController < ApplicationController
   def create
     @store = Store.new(store_params)
     @store.user_id = current_user.id
-    if @store.save
-      respond_to do |format|
-        if @store.save
-          format.html { redirect_to dashboard_stores_path, notice: 'Store was successfully created.' }
-          format.json { render :show, status: :created, location: @store }
-        else
-          format.html { render :new }
-          format.json { render json: @store.errors, status: :unprocessable_entity }
-        end
+    respond_to do |format|
+      if @store.save
+        format.html { redirect_to dashboard_stores_path, notice: 'Store was successfully created.' }
+        format.json { render :show, status: :created, location: @store }
+      else
+        format.html { render :new }
+        format.json { render json: @store.errors, status: :unprocessable_entity }
       end
     end
   end
