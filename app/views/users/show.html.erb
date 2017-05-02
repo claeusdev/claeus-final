@@ -1,7 +1,7 @@
 
 
 
-  <div class="section mt10">
+<div class="section mt10">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -21,6 +21,12 @@
                 </div>
                 <% if user_signed_in? && current_user === @user %>
                     <p><%= link_to "Edit Details" , edit_user_registration_path %></p>
+                        <% if current_user.store.blank?  %>
+                        <p>Do you have some products to sell?</p>
+                        <%= link_to "Start selling", pages_sell_path %>
+                        <% else %>
+                            <p>Visit your shop and add nice functions to it.</p>
+                        <% end %>
                 <% end %>
             </div>
         </div>

@@ -23,12 +23,7 @@
               <%= f.text_area :description, class: "form-control input-lg" %>
               <small>Provide a very good description for your item. Remember good description attracts!</small>
             </div>
-            <div class="form-group">
-              <%= f.label :category %>
-              <%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :name), {}, class: "form-control input-lg" %>
-              <small>Select a category.</small>
-            </div>
-
+            
             <div class="form-group">
               <%= f.label :price %>
               <%= f.text_field :price, class: "form-control input-lg" %>

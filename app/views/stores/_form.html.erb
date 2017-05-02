@@ -41,6 +41,10 @@
           </div
         </div>
         <div class="form-group">
+            <%= f.label "What will you be selling?" %>
+            <%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :name), {}, class: "form-control input-lg" %>
+          </div>
+        <div class="form-group">
           <%= f.label :logo %>
           <%= f.file_field :logo, class: "form-control input-lg"%>
           <small>If you have a logo this will be the place to put it</small>

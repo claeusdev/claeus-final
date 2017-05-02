@@ -19,10 +19,15 @@
                             <%= render 'subcategories', categories: @category.root.descendants.arrange %>
                         </div>
                         <div class="col-sm-10">
+                            <% if @category.stores.present? %>
+                              <% @category.stores.each do |s| %>
+                                <%= link_to s.name, s %>
+                              <% end %>
+                            <% end %>
                             <div class="row">
                                 <% @category.products.each do |p| %>
                                     <div class="col-sm-3 col-xs-6 col-md-3 col-lg-2">
-                                        <h3><%= p.name %></h3>
+                                        <p><%= link_to p.name, p %></p>
                                     </div>
                                 <% end %>
                             </div>

@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.store_id = current_user.store.id
-    
+    @product.category_id = current_user.store.category.id
     respond_to do |format|
       if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }

@@ -6,7 +6,7 @@
             <div class="panel-body">
                 <% @categories.each do |c| %>
 
-                    <h3><%= c.name %></h3>
+                    <h3><%= link_to c.name, category_path(c) %></h3>
 
                 <% end %>
             </div>

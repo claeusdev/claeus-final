@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170429061053) do
+ActiveRecord::Schema.define(version: 20170502032201) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,8 @@ ActiveRecord::Schema.define(version: 20170429061053) do
     t.string   "phone"
     t.string   "website"
     t.string   "slug"
+    t.integer  "category_id"
+    t.index ["category_id"], name: "index_stores_on_category_id", using: :btree
     t.index ["slug"], name: "index_stores_on_slug", using: :btree
     t.index ["user_id"], name: "index_stores_on_user_id", using: :btree
   end
@@ -121,5 +123,6 @@ ActiveRecord::Schema.define(version: 20170429061053) do
   end
 
   add_foreign_key "products", "stores"
+  add_foreign_key "stores", "categories"
   add_foreign_key "stores", "users"
 end
