@@ -11,7 +11,7 @@ class StoresController < ApplicationController
 
   def new
     @store = Store.new
-    
+
   end
 
 
@@ -65,6 +65,6 @@ class StoresController < ApplicationController
     end
 
     def store_params
-      params.require(:store).permit(:name, :description, :tagline, :user_id, :category_id, :logo, :city, :phone, :website)
+      params.require(:store).permit(:name, :description, :tagline, :user_id, :logo, :city, :phone, :website)
     end
 end

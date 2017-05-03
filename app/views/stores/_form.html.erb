@@ -13,7 +13,7 @@
             </ul>
           </div>
       <% end %>
-        
+
       <div class="col-sm-6">
         <div class="form-group">
           <%= f.label :name %>
@@ -38,12 +38,9 @@
             <%= f.label :city %>
             <%= f.text_field :city, class: "form-control input-lg"%>
             <small>Enter a city so we can set you up with shoppers near your location</small>
-          </div
-        </div>
-        <div class="form-group">
-            <%= f.label "What will you be selling?" %>
-            <%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :name), {}, class: "form-control input-lg" %>
           </div>
+        </div>
+        
         <div class="form-group">
           <%= f.label :logo %>
           <%= f.file_field :logo, class: "form-control input-lg"%>

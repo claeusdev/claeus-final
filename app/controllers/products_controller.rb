@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
   def show
     @r = Review.new
     @review = Review.where(product_id: @product)
-  
+
     if @review.blank?
       @avg_rating = 0
     else
@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.store_id = current_user.store.id
-    @product.category_id = current_user.store.category.id
+  
     respond_to do |format|
       if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
@@ -36,7 +36,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    
+
   end
 
   def update

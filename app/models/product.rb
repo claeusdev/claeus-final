@@ -1,12 +1,12 @@
 class Product < ApplicationRecord
   mount_uploaders :images, ImageUploader
 
-  
+
   belongs_to :store
   has_many :reviews
   belongs_to :category
 
-  validates :name, :price, :description, :images, :stock, presence: true
+  validates :name, :price, :description, :category, :images, :stock, presence: true
   validates :slug, uniqueness: true, presence: true
 
   before_validation :generate_slug
