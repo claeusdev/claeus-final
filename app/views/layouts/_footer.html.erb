@@ -7,26 +7,25 @@
             <div class="col-sm-2 col-sm-offset-2 col-xs-4 col-xs-offset-0">
                 <h4 class="h-bold">Company</h4>
                 <ul class="list-unstyled">
-                    <li><a href="/features/online-course-builder">About Us</a></li>
-                    <li><a href="/features/digital-downloads">Blog</a></li>
-                    <li><a href="/features/landing-page-builder">Contact Us</a></li>
+                    <li><%= link_to "About Us", pages_about_path %></li>
+                    <li><%= link_to "Blog", pages_about_path %></li>
+                    <li><%= link_to "Contact Us", pages_about_path %></li>
                 </ul>
             </div>
             <div class="col-sm-2 col-sm-offset-1 col-xs-4 col-xs-offset-0">
                 <h4 class="h-bold">Business</h4>
                 <ul class="list-unstyled">
-                    <li><a href="/features">Sell on Claeus</a></li>
-                    <li><a href="/pricing">Advertise on Claeus</a></li>
-                    <li><a href="/examples">FAQs</a></li>
+                    <li><%= link_to "Sell on Claeus", pages_sell_path %></li>
+                    <li><%= link_to "Advertise", pages_sell_path %></li>
+                    <li><%= link_to "FAQs", pages_sell_path %></li>
                 </ul>
             </div>
             <div class="col-sm-2 col-xs-4 col-xs-offset-0">
                 <h4 class="h-bold">Help</h4>
                 <ul class="list-unstyled">
-                    <li><a target="_blank" href="http://help.withcoach.com/">Support</a></li>
-                    <li><a href="mailto:hello@withcoach.com">Contact Us</a></li>
-                    <li><a href="/privacy">Privacy</a></li>
-                    <li><a href="/terms">Terms</a></li>
+                    <li><%= link_to "Support", pages_sell_path %></li>
+                    <li><%= link_to "Privacy", pages_sell_path %></li>
+                    <li><%= link_to "Terms", pages_sell_path %></li>
                 </ul>
             </div>
         </div>
