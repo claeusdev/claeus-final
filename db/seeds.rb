@@ -6,3 +6,11 @@ home_category = Category.where(name: "Home & Furniture").first_or_create(name: "
 beauty_category = Category.where(name: "Beauty & Health").first_or_create(name: "Beauty & Health")
 grocery_category = Category.where(name: "Grocery").first_or_create(name: "Grocery")
 autos_category = Category.where(name: "Autos & Vehicles").first_or_create(name: "Autos & Vehicles")
+
+Subcategory.where(name: "Phones & Accesories", category_id: 1).first_or_create(name: "Phones & Accesories")
+Subcategory.where(name: "Clothing", category_id: 2).first_or_create(name: "Clothing")
+Subcategory.where(name: "Clothing", category_id: 3).first_or_create(name: "Clothing")
+Subcategory.where(name: "Shoes", category_id: 4).first_or_create(name: "Shoes")
+Subcategory.where(name: "Kitchen", category_id: 5).first_or_create(name: "Kitchen")
+Subcategory.where(name: "Make-up", category_id: 6).first_or_create(name: "Make-up")
+Subcategory.where(name: "Daily Needs", category_id: 7).first_or_create(name: "Daily Needs")

@@ -1,6 +1,6 @@
 class Store < ApplicationRecord
   RESTRICTED_NAMES = %w[www]
-  
+
   mount_uploader :logo, ImageUploader
 
   belongs_to :user
@@ -12,7 +12,7 @@ class Store < ApplicationRecord
                   format: { with: /\A[\w\-]+\Z/i, message: 'contains invalid characters'},
                   exclusion: { in: RESTRICTED_NAMES, message: 'restricted'}
 
-  validates :description, :tagline, :category, presence: true
+  validates :description, :tagline, presence: true
   validates :slug, uniqueness: true, presence: true
 
   before_validation :generate_slug

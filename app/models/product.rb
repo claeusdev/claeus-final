@@ -5,7 +5,7 @@ class Product < ApplicationRecord
   belongs_to :store
   has_many :reviews
   belongs_to :category
-
+  belongs_to :subcategory
   validates :name, :price, :description, :category, :images, :stock, presence: true
   validates :slug, uniqueness: true, presence: true
 

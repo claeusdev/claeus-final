@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :categories
 
   resources :stores, :except => [:index] do
     collection do

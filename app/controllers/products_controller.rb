@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.store_id = current_user.store.id
-  
+
     respond_to do |format|
       if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
@@ -68,6 +68,6 @@ class ProductsController < ApplicationController
     end
 
     def product_params
-      params.require(:product).permit(:name, :description, :price, :store_id, :stock, :category_id, {images: []})
+      params.require(:product).permit(:name, :description, :price, :store_id, :stock, :category_id, :subcategory_id, {images: []})
     end
 end

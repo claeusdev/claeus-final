@@ -1,12 +1,6 @@
 class Category < ApplicationRecord
 
-    mount_uploader :avatar, ImageUploader
+  has_many :products, through: :subcategories
+  has_many :subcategories
 
-    validates :name, presence: true,
-                uniqueness: true
-                
-    has_many :products
-    has_many :stores
-
-    has_ancestry
 end
