@@ -26,7 +26,7 @@ gem 'rmagick'
 gem 'carrierwave', '~> 1.0'
 gem "fog-aws"
 gem "faker"
-
+gem 'mail_form', '~> 1.5', '>= 1.5.1'
 
 gem 'impressionist', '~> 1.5', '>= 1.5.1'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.1'

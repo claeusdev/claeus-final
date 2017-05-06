@@ -15,5 +15,29 @@ class PagesController < ApplicationController
 
   def about
   end
-  
+
+  def contact
+
+  end
+
+  def terms
+
+  end
+
+  def privacy
+
+  end
+
+  def support
+
+  end
+
+  def blog
+
+  end
+
+  def advertise
+
+  end
+
 end

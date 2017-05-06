@@ -16,6 +16,10 @@
 
       <div class="col-sm-6">
         <div class="form-group">
+          <%= f.label "What will you be selling?" %>
+          <%= f.collection_select :category_id, Category.order(:name), :id, :name, include_blank: true, class: "form-control input-lg" %>
+        </div>
+        <div class="form-group">
           <%= f.label :name %>
           <%= f.text_field :name, class: "form-control input-lg"%>
           <small>Add a brand name or just a name for your store</small>
@@ -23,35 +27,38 @@
 
         <div class="form-group">
           <%= f.label :description %>
-          <%= f.text_area :description, class: "form-control input-lg"%>
+          <%= f.text_area :description,  cols: "20", rows: "5", class: "form-control input-lg"%>
           <small>Add a description to your shop. This could be a summarized description of your brand.</small>
         </div>
-      </div>
 
-      <div class="col-sm-6">
-        <div class="form-group">
-          <%= f.label :tagline %>
-          <%= f.text_field :tagline, class: "form-control input-lg"%>
-          <small>Add s tagline Eg. We power your fashion</small>
-        </div>
-        <div class="form-group">
-            <%= f.label :city %>
-            <%= f.text_field :city, class: "form-control input-lg"%>
-            <small>Enter a city so we can set you up with shoppers near your location</small>
-          </div>
-        </div>
-        
         <div class="form-group">
           <%= f.label :logo %>
-          <%= f.file_field :logo, class: "form-control input-lg"%>
+          <%= f.file_field :logo, class: "input-lg"%>
           <small>If you have a logo this will be the place to put it</small>
         </div>
       </div>
-      <hr>
-      <div class="col-sm-8 col-sm-offset-2">
-          <div class="actions">
-            <%= f.submit class: "btn btn-danger btn-block btn-lg" %>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <%= f.label :tagline %>
+            <%= f.text_field :tagline, class: "form-control input-lg"%>
+            <small>Add s tagline Eg. We power your fashion</small>
           </div>
+          <div class="form-group">
+              <%= f.label :city %>
+              <%= f.text_field :city, class: "form-control input-lg"%>
+              <small>Enter a city so we can set you up with shoppers near your location</small>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :all_tags %>
+              <%= f.text_field :all_tags, class: "form-control input-lg"%>
+              <small>Add tags to your shop this will help your store get foud easily. Separate each tag with a ","</small>
+            </div>
+          </div>
+      </div>
+      <hr>
+      <div class="actions">
+        <%= f.submit class: "btn btn-danger btn-block btn-lg" %>
       </div>
     </div>
   <% end %>

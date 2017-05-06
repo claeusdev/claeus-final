@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170505131514) do
+ActiveRecord::Schema.define(version: 20170506052042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,8 @@ ActiveRecord::Schema.define(version: 20170505131514) do
     t.string   "phone"
     t.string   "website"
     t.string   "slug"
+    t.integer  "category_id"
+    t.index ["category_id"], name: "index_stores_on_category_id", using: :btree
     t.index ["slug"], name: "index_stores_on_slug", using: :btree
     t.index ["user_id"], name: "index_stores_on_user_id", using: :btree
   end
@@ -98,6 +100,21 @@ ActiveRecord::Schema.define(version: 20170505131514) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["category_id"], name: "index_subcategories_on_category_id", using: :btree
+  end
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "store_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["store_id"], name: "index_taggings_on_store_id", using: :btree
+    t.index ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -129,6 +146,9 @@ ActiveRecord::Schema.define(version: 20170505131514) do
 
   add_foreign_key "products", "stores"
   add_foreign_key "products", "subcategories"
+  add_foreign_key "stores", "categories"
   add_foreign_key "stores", "users"
   add_foreign_key "subcategories", "categories"
+  add_foreign_key "taggings", "stores"
+  add_foreign_key "taggings", "tags"
 end
