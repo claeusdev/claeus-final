@@ -16,7 +16,7 @@ class Store < ApplicationRecord
                   format: { with: /\A[\w\-]+\Z/i, message: 'contains invalid characters'},
                   exclusion: { in: RESTRICTED_NAMES, message: 'restricted'}
 
-  validates :description, :tagline, presence: true
+  validates :description, :category, :tagline, presence: true
   validates :slug, uniqueness: true, presence: true
 
   before_validation :generate_slug

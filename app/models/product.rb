@@ -18,7 +18,9 @@ class Product < ApplicationRecord
   end
 
   def self.search(params)
-    @products = Product.where("name LIKE ? or description LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%") if params[:search].present?
+    if params[:search].present?
+      @products = Product.where("name LIKE ? or description LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%").order(created_at: :desc)
+    end
     @products
   end
 
