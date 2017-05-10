@@ -2,10 +2,10 @@
 <div class=" section mt10 mb7">
     <div class="container ">
       <div class="row">
-        <div class="col-sm-5">
+        <div class="col-sm-7">
           <%= image_tag @product.images[0].medium, class: "img-responsive" %>
         </div>
-        <div class="col-sm-7">
+        <div class="col-sm-5">
            <span class="label label-danger">
           <%=  @product.category.name %>
         </span>
@@ -44,9 +44,11 @@
       <div class="container">
         <div class="row">
           <% for image in @product.images %>
-          <div class="col-sm-4 col-sm-offset-1">
-            <div class="img-responsive center-block">
-              <%= image_tag image.asset %>
+          <div class="col-sm-6 col-sm-offset-3 clearfix">
+            <div class="thumbnail">
+              <div class="img-responsive">
+                <%= image_tag image.medium %>
+              </div>
             </div>
           </div>
           <% end %>
@@ -54,4 +56,3 @@
       </div>
     </div>
 </div>
-

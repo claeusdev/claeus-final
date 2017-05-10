@@ -4,7 +4,7 @@ body
   font-size: 14px
   font-weight: normal
   color: $main-text
-  
+
 
 h1, h2, h3, h4, h5, h6
   font-weight: bold
@@ -49,7 +49,7 @@ a
 
 .mt10
   margin-top: 10px
-  
+
 // np == No padding
 .np
   padding: 0
@@ -85,10 +85,10 @@ a
 
 
 // buttons
+.btn
+  position: relative
+  border-radius: 5px
 
-.btn 
-  border-radius: 0
-  
 .btn-link
   color: $red
   font-size: inherit
@@ -97,13 +97,30 @@ a
 
 .btn-block
   margin: inherit 15px !important
+
+.button
+  vertical-align: middle
+
+.button::after
+  position: absolute
+  content: ' '
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  border-radius: 5px
+
+.button:hover::after
+  box-shadow: inset 0 -3px rgba(0, 0, 0, .25)
+
+
 // button danger override
 
 .btn-danger,
-.btn-danger:hover, 
-.btn-danger:active, 
+.btn-danger:hover,
+.btn-danger:active,
 .btn-danger:visited,
-.btn-danger:focus 
+.btn-danger:focus
   background-color: $red
 
 .label-danger
@@ -128,5 +145,3 @@ ul>li
 
 .panel-body
   padding-top: 0
-
-
