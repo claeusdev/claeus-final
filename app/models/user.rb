@@ -9,6 +9,23 @@ class User < ApplicationRecord
   has_one :store, dependent: :destroy
   has_many :reviews
 
+  has_many :active_relationships, class_name: "Relationship",
+                                  foreign_key: "follower_id",
+                                  dependent: :destroy
+  has_many :followings, through: :active_relationships, source: :followed
+
+  def follow(store)
+    active_relationships.create(followed_id: store.id)
+  end
+
+
+  def unfollow(store)
+    active_relationships.find_by(followed_id: store.id).destroy
+  end
+
+  def following?(store)
+    following_ids.include?(store.id)
+  end
 
 
   def full_name

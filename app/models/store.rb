@@ -7,6 +7,13 @@ class Store < ApplicationRecord
   belongs_to :user
   belongs_to :category
 
+  has_many :passive_relationships, class_name: "Relationship",
+                                    foreign_key: "followed_id",
+                                    dependent: :destroy
+
+  has_many :followers, through: :passive_relationships, source: :follower
+
+  
   has_many :products, dependent: :destroy
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
@@ -20,6 +27,10 @@ class Store < ApplicationRecord
   validates :slug, uniqueness: true, presence: true
 
   before_validation :generate_slug
+
+
+
+#
 
 # Get all stores tagged with name
 

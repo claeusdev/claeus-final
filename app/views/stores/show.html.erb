@@ -8,6 +8,9 @@
           <p ><%= @store.tagline.capitalize %></p>
           <p >Owned by: <%= link_to @store.user.username, user_path(@store.user) %></p>
           <p><%= @store.all_tags %></p>
+          <% if user_signed_in? && !current_user%>
+            <a class="btn btn-danger button">Follow</a>
+          <% end %>
         </div>
       </div>
     </div>
