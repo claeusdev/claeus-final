@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resource :relationships, only: [:create, :destroy]
+
   get 'index', :to => 'pages#index'
 
   get 'sell', :to => 'pages#sell'
