@@ -35,7 +35,7 @@ class User < ApplicationRecord
 
   def about_me
     return "#{about}"  if (about)
-    "Hi, i'm very sorry but i am yet to write something useful about myself here."
+    "Im empty"
   end
 
 

@@ -15,22 +15,13 @@
         <h4 class="amount"> <%= number_to_currency(@product.price) %></h4>
         <label>Description:</label>
         <p><%= @product.description%></p>
-
+        <hr>
         <%#<button type="button" name="button" class="btn btn-danger">Contact Seller</button>
         <button type="button" name="button" class="btn btn-danger">Add to cart</button>%>
-        <span>Already purchaed this product? <%= link_to "Write a review", new_product_review_path(@product)%></span>
-          <%= render 'reviews/form' %>
-          <br><br>
-         <p class="lead"><strong>Reviews</strong></p>
-          <% if @review.blank? %>
-            <p>No reviews yet</p>
-          <% else %>
-            <% @review.each do |r| %>
-              <div class="star-rating" data-score=<%= r.rating %>></div>
-              <p><%= r.comment %></p>
-              <span>By: <%= r.user.username %></span>
-            <% end %>
-          <% end %>
+        <div class="pt6">
+          <span>Already purchaed this product?Write a review </span>
+            <%= render 'reviews/form' %>
+        </div>
 
         <% if (user_signed_in?) && (current_user == @user) %>
           <%= link_to "Edit", edit_product_path(@product) %>
@@ -42,17 +33,42 @@
       <hr>
       <br>
       <div class="container">
-        <div class="row">
-          <% for image in @product.images %>
-          <div class="col-sm-6 col-sm-offset-3 clearfix">
-            <div class="thumbnail">
-              <div class="img-responsive">
-                <%= image_tag image.medium %>
+
+        <ul class="nav nav-tabs">
+          <li role="presentation" class="active"><a href="#gallery" data-toggle="tab">Gallery</a></li>
+          <li role="presentation"><a href="#reviews" data-toggle="tab">Reviews</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane fade in active" id="gallery" >
+              <div class="row pt6">
+                <% for image in @product.images %>
+                <div class="col-sm-6 col-sm-offset-3 clearfix">
+                  <div class="thumbnail">
+                    <div class="img-responsive">
+                      <%= image_tag image.medium %>
+                    </div>
+                  </div>
+                </div>
+                <% end %>
               </div>
             </div>
-          </div>
-          <% end %>
+
+            <div class="tab-pane fade in pt6" id="reviews" >
+              <p class="lead "><strong>Reviews</strong></p>
+               <% if @review.blank? %>
+                 <p>No reviews yet</p>
+               <% else %>
+                 <% @review.each do |r| %>
+                   <div class="star-rating" data-score=<%= r.rating %>></div>
+                   <p><%= r.comment %></p>
+                   <span>By: <%= r.user.username %></span>
+                 <% end %>
+               <% end %>
+
+            </div>
         </div>
+
       </div>
     </div>
 </div>

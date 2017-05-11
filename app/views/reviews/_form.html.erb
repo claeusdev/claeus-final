@@ -3,9 +3,11 @@
     <div id="star-rating">
         <label>Rating</label>
     </div>
-    <%= f.text_area :comment%>
+    <div class="form-group">
+      <%= f.text_area :comment, class: "form-control"%>
+    </div>
+    <%= f.submit "Review", class: "btn btn-danger button btn-block" %>
 
-    <%= f.submit %>
 <% end %>
 
 
