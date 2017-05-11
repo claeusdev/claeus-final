@@ -24,12 +24,14 @@
         <div class="row">
           <% @store.products.each do |product| %>
 
-              <div class="col-sm-3 col-md-3 col-xs-6">
+              <div class="col-sm-4 col-md-4 col-xs-6">
                 <div class="thumbnail">
                   <%= image_tag (product.images[0].medium), class: "img-responsive" %>
                   <div class="caption">
-                    <span class="amount"><%= number_to_currency(product.price) %></span>
                     <h3> <%= link_to product.name.capitalize, product %></h3>
+                    <div class="caption-bottom">
+                      <span class="amount">GHS<%= product.price.round %></span>
+                    </div>
                   </div>
                 </div>
               </div>

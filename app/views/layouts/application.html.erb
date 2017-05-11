@@ -17,20 +17,18 @@
 
   <body class="bg-white">
 
-
     <%= render 'layouts/header' %>
-      <div class="container">
+
         <% if notice.present? %>
-          <aside class="alert alert-success close.bs.alert">
-          <%= notice %>
-          </aside>
+          <div id="notice_wrapper">
+            <p class="notice"><%= notice %></p>
+          </div>
+        <% elsif alert.present? %>
+          <div id="alert_wrapper">
+            <p class="alert"><%= alert %></p>
+          </div>
         <% end %>
-        <% if alert.present? %>
-          <aside class="alert alert-danger">
-            <%= alert %>
-          </aside>
-        <% end %>
-      </div>
+
     <%= yield %>
     <%= render 'layouts/footer' %>
 

@@ -27,5 +27,16 @@ $(document).ready(function() {
         $(".add-product").show();
     });
 
+    setTimeout(function(){
+      $("#notice_wrapper").fadeOut("slow", function(){
+        $(this).remove();
+      });
+    }, 1500);
+
+    setTimeout(function(){
+      $("#alert_wrapper").fadeOut("slow", function(){
+        $(this).remove();
+      });
+    }, 1500);
 
 });
