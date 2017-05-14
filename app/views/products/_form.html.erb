@@ -20,7 +20,7 @@
 
             <div class="form-group">
               <%= f.label :category_id %>
-              <%= f.collection_select :category_id, Category.order(:name), :id, :name, include_blank: true, class: "form-control input-lg" %>
+              <%= f.collection_select :category_id, Category.order(:name), :id, :name, include_blank: true, class: "form-control" %>
               <small>Select a Category</small>
             </div>
 
@@ -50,12 +50,10 @@
               <small>How many of this product do you have to offer?</small>
             </div>
 
-
-
             <div class="pdt-assets">
-              <p class="lead"> Please add more pictures</p>
                 <%= f.label :images %>
                 <%= f.file_field :images, multiple: true %>
+                <small>You can select up to 5 images, the first will be used as the feature image.</small>
             </div>
           </div>
           <div class="actions">

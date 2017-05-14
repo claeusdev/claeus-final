@@ -65,6 +65,6 @@ class StoresController < ApplicationController
     end
 
     def store_params
-      params.require(:store).permit(:name, :description, :tagline, :user_id, :logo, :city, :phone, :website, :all_tags, :category_id)
+      params.require(:store).permit(:name, :description, :tagline, :user_id, :logo, :city, :phone, :website, :all_tags, :category_id, :subcategory_id)
     end
 end

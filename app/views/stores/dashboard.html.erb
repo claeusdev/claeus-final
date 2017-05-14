@@ -4,7 +4,7 @@
             <h2 class="page-header text-right">Claeus Merchant Admin Panel</h2>
 
             <div class="">
-                <ul class="nav nav-tabs">
+                <ul class="nav nav-pills">
                     <li role="presentation" class="active"><a href="#dashboard" data-toggle="tab">Dashboard</a></li>
                     <li role="presentation"><a href="#products" data-toggle="tab">Products</a></li>
                     <li role="presentation"><a href="#orders" data-toggle="tab">Orders</a></li>
@@ -20,7 +20,14 @@
 
                         <div class="text-center">
                             <h3>Your storefront views</h3>
-                            <p>Your Store has been viewed: <%= @store.impressionist_count %> times</p>
+                            <p class="lead">Your Store has been viewed: <strong><%= @store.impressionist_count %></strong> times</p>
+                            <p class="lead"><%= @store.followers.count %> Followers </p>
+                            <ul>
+                              <% @store.followers.each do |f| %>
+                                <li><%= link_to f.username, f %></li>
+                              <% end %>
+                            </ul>
+
                         </div>
 
                     </div>
