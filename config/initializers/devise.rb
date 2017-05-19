@@ -111,10 +111,10 @@ Devise.setup do |config|
   # config.pepper = '2f1be0137077a6c66a292fdd642987a10323300222b2214d4a09fc1f7ec74302af9e83d7eb43d13a5983e14181ddaaf3b509ec71b183d92a29149701b5c62f25'
 
   # Send a notification to the original email when the user's email is changed.
-  # config.send_email_changed_notification = false
+  config.send_email_changed_notification = true
 
   # Send a notification email when the user's password is changed.
-  # config.send_password_change_notification = false
+   config.send_password_change_notification = true
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -274,4 +274,10 @@ Devise.setup do |config|
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+
+  # Facebook authentication
+  config.omniauth :facebook,  '1960576137506127', 'e70bea93b7514af2b1cc242300eb8515',
+                  scope: 'email,public_profile', info_fields: 'email,first_name,last_name, picture',
+                  image_size: 'normal'
+
 end

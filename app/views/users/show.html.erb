@@ -6,7 +6,9 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="col-sm-3">
-                    <%= image_tag(@user.avatar.medium) %>
+                  <div class="img-rounded">
+                    <%= image_tag(@user.avatar) %>
+                  </div>
                 </div>
                 <div class="col-sm-9">
                     <h2> Hey, i'm <%= @user.full_name %></h2>

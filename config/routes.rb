@@ -1,13 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'subcategories/index'
-
-  get 'subcategories/show'
-
-  get 'categories/index'
-
-  get 'categories/show'
-
   resources :stores, :except => [:index] do
     collection do
       get 'dashboard'
@@ -47,7 +39,12 @@ Rails.application.routes.draw do
 
 
   # get 'stores/dashboard'
-  devise_for :users, :controllers => {:registrations => "user/registrations"}
+  devise_for :users, :controllers => {:registrations => "users/registrations", :omniauth_callbacks => "users/omniauth_callbacks"}
+
+  # devise_scope :user do
+  #   get 'sign_in', :to => 'devise/sessions#new', :as => :new_user_session
+  #   get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
+  # end
   resources :users, :only => [:show]
   root "pages#index"
 end

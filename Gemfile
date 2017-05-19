@@ -34,6 +34,8 @@ gem 'newrelic_rpm', '~> 3.15', '>= 3.15.2.317'
 
 
 gem "react-rails"
+gem 'omniauth-facebook'
+
 
 group :development, :test do
   gem 'byebug', platform: :mri

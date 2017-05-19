@@ -3,7 +3,7 @@ class PagesController < ApplicationController
     @latest_products = Product.all.order(created_at: :desc).limit(12)
     @categories = Category.all.limit(12)
     @latest_stores = Store.all.order(created_at: :desc).limit(3)
-
+    @store = Store.all
     @featured_store = Store.all.limit(1)
   end
 

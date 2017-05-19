@@ -1,3 +1,5 @@
+
+<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
 <div class="container">
   <div class="section mb7">
     <div class="row">
@@ -19,7 +21,7 @@
               <%= f.text_field :last_name, class: "form-control input-lg" %>
             </div>
           </div>
-          
+
           <div class="form-group">
             <%= f.label :username %><br />
             <%= f.text_field :username, class: "form-control input-lg" %>
@@ -40,6 +42,11 @@
           <div class="form-group">
             <%= f.label :password_confirmation %><br />
             <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control input-lg" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :avatar %><br />
+            <%= f.file_field :avatar, class: "form-control input-lg" %>
           </div>
 
           <div class="actions">
