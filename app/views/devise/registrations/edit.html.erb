@@ -36,7 +36,7 @@
             <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
           <% end %>
 
-          <% if f.object.encripted_password.present? %>
+          <% if f.object.encrypted_password.present? %>
             <div class="form-group">
               <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
               <%= f.password_field :password, autocomplete: "off", class: "form-control input-lg" %>
