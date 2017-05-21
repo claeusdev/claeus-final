@@ -17,6 +17,7 @@ class StoresController < ApplicationController
 
   def show
     impressionist(@store)
+    set_meta_tags title: @store.name
   end
 
   def edit

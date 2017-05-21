@@ -1,73 +1,24 @@
 
-
-
 <div class="section mt10">
     <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="col-sm-3">
-                  <div class="img-rounded">
-                    <%= image_tag(@user.avatar) %>
-                  </div>
-                </div>
-                <div class="col-sm-9">
-                    <h2> Hey, i'm <%= @user.full_name %></h2>
-                    <p><strong>Member Since: <%= @user.created_at.strftime("%D")%></strong> </p>
-                    <!-- <span>100 Followers</span> | <span>12 groups</span> -->
-                    <% if @user.store %>
-                        <p>Owns: <%= link_to @user.store.name.capitalize, store_path(@user.store) %></p>
-                    <% end %>
-                    <hr>
-
-                    <!-- <p class="about">
-                      <% if @user.about_me === "" %>
-                        <%= link_to "Write something short about yourself", edit_user_registration_path(@user) %>
-                      <% else %>
-                        <%= @user.about_me %>
-                      <% end %>
-                    </p> -->
-                </div>
-                <div class="row">
-                  <div class="col-md-10 col-md-offset-1">
-                    <% if @user.store.present? && current_user == @user %>
-                      <%= link_to "View your store", store_path(@user.store), class: "btn btn-danger" %>
-                    <% else %>
-                      <p>Start a store in 3 easy steps</p>
-                      <div class="row">
-                        <div class="col-md-4  col-sm-12">
-                          <div class="bg-white shadow-box pa6 home-shadow-box clearfix">
-
-                            <!-- <%= image_tag("shop.svg", width:"70px") %> -->
-                              <div class="text pl5">
-                              <h3 class="mt0 mb3 text-w-700">Create your Store</h3>
-                              <p class="ma0">Create a store easily.</p>
-                            </div>
-                          </div>
-                        </div>
-                      <div class="col-md-4  col-sm-12">
-                        <div class="bg-white shadow-box pa6 home-shadow-box clearfix">
-                          <!-- <%= image_tag("price-tag.svg", width: "70px") %> -->
-                          <div class="text pl5">
-                            <h3 class="mt0 mb3 text-w-700">Add your products</h3>
-                            <p class="ma0">Theres no limit to what you can sell.</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4 col-sm-12">
-                        <div class="bg-white shadow-box pa6 home-shadow-box clearfix">
-                          <!-- <%= image_tag("price-tag.svg", width: "70px") %> -->
-                          <div class="text pl5">
-                            <h3 class="mt0 mb3 text-w-700">Share with your followers</h3>
-                            <p class="ma0">Drive traffic to your awesome store by sharing ir with your followers.</p>
-                          </div>
-                        </div>
-                      </div>
-                      </div>
-                  </div>
-                  <% end %>
-                </div>
-
+      <div class="col-sm-8 col-sm-offset-2">
+        <div class="media">
+          <% if @user.avatar.present? %>
+            <div class="media-left">
+              <%= image_tag(@user.avatar.medium) %>
             </div>
+          <% end %>
+          <div class="media-body">
+            <h4 class="media-heading"><h2> Hey, i'm <%= @user.full_name %></h2></h4>
+            <p><strong>Member Since: <%= @user.created_at.strftime("%D")%></strong> </p>
+            <% if @user.store %>
+                <p>Owns: <%= link_to @user.store.name.capitalize, store_path(@user.store) %></p>
+            <% end %>
+            <% if @user.store.present? && current_user == @user %>
+              <%= link_to "View your store", store_path(@user.store), class: "btn btn-danger" %>
+            <% end %>
+          </div>
         </div>
+      </div>
     </div>
 </div>
