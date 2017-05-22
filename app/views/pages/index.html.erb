@@ -31,10 +31,9 @@
               <div class="row pt6">
                 <% @latest_stores.each do |s|%>
                   <div class="col-sm-3 col-xs-6">
-                    <div class="thumbnail">
-                      <%= image_tag s.logo , class: "img-responsive"%>
+                    <div class="caption">
+                      <p class="lead"><%= link_to s.name, s %></p>
                     </div>
-                    <p class="lead"><%= link_to s.name, s %></p>
                   </div>
                   <% end %>
                 </div>
