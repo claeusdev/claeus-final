@@ -1,78 +1,86 @@
 <% content_for :title, @product.name %>
 <div class=" section mt10 mb7">
     <div class="container ">
-      <div class="row">
-        <div class="col-sm-7">
-          <%= image_tag @product.images[0].medium, class: "img-responsive" %>
-        </div>
-        <div class="col-sm-5">
-           <span class="label label-danger">
-          <%=  @product.category.name %>
-        </span>
-        <p class="lead">By: <%= link_to @product.store.name.capitalize, store_path(@product.store), class: "btn btn-link" %></p>
-        <h3><%= @product.name.capitalize %></h3>
-        <span class="star-rating" data-score=<%= @avg_rating %>></span> |  <span><%= @product.reviews.count %> Customer reviews</span>
-        <h4 class="amount"> <%= number_to_currency(@product.price) %></h4>
-        <label>Description:</label>
-        <p><%= @product.description%></p>
-        <hr>
-        <!-- <button type="button" name="button" class="btn btn-danger">Contact Seller</button>
-        <button type="button" name="button" class="btn btn-danger">Add to cart</button> -->
+      <div class="panel panel-danger">
+        <div class="panel-body">
+          <div class="row pt6">
+            <div class="col-sm-7">
+              <%= image_tag @product.images[0].medium, class: "img-responsive" %>
+            </div>
+            <div class="col-sm-5">
+               <span class="label label-danger">
+              <%=  @product.category.name %>
+            </span>
+            <p class="lead">By: <%= link_to @product.store.name.capitalize, store_path(@product.store), class: "btn btn-link" %></p>
+            <h3><%= @product.name.capitalize %></h3>
+            <span class="star-rating" data-score=<%= @avg_rating %>></span> |  <span><%= @product.reviews.count %> Customer reviews</span>
+            <h4 class="amount"> <%= number_to_currency(@product.price) %></h4>
+            <label>Description:</label>
+            <p><%= @product.description%></p>
+            <hr>
+            <!-- <button type="button" name="button" class="btn btn-danger">Contact Seller</button>
+            <button type="button" name="button" class="btn btn-danger">Add to cart</button> -->
 
 
-        <% if (user_signed_in?) && (current_user == @user) %>
-          <%= link_to "Edit", edit_product_path(@product) %>
-          <%= link_to 'Back', products_path %>
-          <%= link_to "Delete", @product, method: :delete, data: {confirm: "Are you sure?"} %>
-        <% end %>
-        </div>
-      </div>
-      <hr>
-      <br>
-      <div class="container">
+            <% if (user_signed_in?) && (current_user == @user) %>
+              <%= link_to "Edit", edit_product_path(@product) %>
+              <%= link_to 'Back', products_path %>
+              <%= link_to "Delete", @product, method: :delete, data: {confirm: "Are you sure?"} %>
+            <% end %>
+            </div>
+          </div>
 
-        <ul class="nav nav-pills">
-          <li role="presentation" class="active"><a href="#gallery" data-toggle="tab">Gallery</a></li>
-          <li role="presentation"><a href="#reviews" data-toggle="tab">Reviews</a></li>
-        </ul>
-        <!-- Tab panes -->
-        <div class="tab-content">
-            <div class="tab-pane fade in active" id="gallery" >
-              <div class="row pt6">
-                <% for image in @product.images %>
-                <div class="col-sm-6 col-sm-offset-3 clearfix">
-                  <div class="thumbnail">
-                    <div class="img-responsive">
-                      <%= image_tag image.medium %>
+          <hr>
+          <br>
+
+          <div class="container">
+
+            <ul class="nav nav-pills">
+              <li role="presentation" class="active"><a href="#gallery" data-toggle="tab">Gallery</a></li>
+              <li role="presentation"><a href="#reviews" data-toggle="tab">Reviews</a></li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div class="tab-pane fade in active" id="gallery" >
+                  <div class="row pt6">
+                    <% for image in @product.images %>
+                    <div class="col-sm-6 col-sm-offset-3 clearfix">
+                      <div class="thumbnail">
+                        <div class="img-responsive">
+                          <%= image_tag image.medium %>
+                        </div>
+                      </div>
+                    </div>
+                    <% end %>
+                  </div>
+                </div>
+
+                <div class="tab-pane fade in pt6" id="reviews" >
+                  <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2">
+                      <p class="lead "><strong>Reviews</strong></p>
+                      <div class="pt6">
+                        <span>Already purchaed this product?Write a review </span>
+                          <%= render 'reviews/form' %>
+                      </div>
+                      <hr>
+                       <% if @review.blank? %>
+                         <p>No reviews yet</p>
+                       <% else %>
+                         <% @review.each do |r| %>
+                           <div class="star-rating" data-score=<%= r.rating %>></div>
+                           <p><%= r.comment %></p>
+                           <span>By: <%= r.user.username %></span>
+                         <% end %>
+                       <% end %>
                     </div>
                   </div>
                 </div>
-                <% end %>
-              </div>
             </div>
-
-            <div class="tab-pane fade in pt6" id="reviews" >
-              <div class="row">
-                <div class="col-sm-8 col-sm-offset-2">
-                  <p class="lead "><strong>Reviews</strong></p>
-                  <div class="pt6">
-                    <span>Already purchaed this product?Write a review </span>
-                      <%= render 'reviews/form' %>
-                  </div>
-                  <hr>
-                   <% if @review.blank? %>
-                     <p>No reviews yet</p>
-                   <% else %>
-                     <% @review.each do |r| %>
-                       <div class="star-rating" data-score=<%= r.rating %>></div>
-                       <p><%= r.comment %></p>
-                       <span>By: <%= r.user.username %></span>
-                     <% end %>
-                   <% end %>
-                </div>
-              </div>
-            </div>
+          </div>
         </div>
       </div>
+
+
     </div>
 </div>

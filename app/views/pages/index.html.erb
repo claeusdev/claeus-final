@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-sm-10 col-sm-offset-1">
             <div class="">
-              <h1>Browse items and experience a unique shopping experience.</h1>
+              <h1>Buy directly form Ghana's emerging brands.</h1>
               <%= form_tag search_products_path,  method: :get do |f| %>
                 <div class="input-group input-group-lg">
                   <%= text_field_tag :search, nil, placeholder: "Search products & stores", class: "form-control input-lg" %>
@@ -34,6 +34,7 @@
                     <div class="thumbnail">
                       <%= image_tag s.logo , class: "img-responsive"%>
                     </div>
+                    <p class="lead"><%= link_to s.name, s %></p>
                   </div>
                   <% end %>
                 </div>
@@ -58,29 +59,3 @@
     </div>
   </div>
 </section>
-
-
-<!-- <section class="section">
-  <div class="container">
-    <div class="text-center">
-      <p class="lead">Claeus is the home of emerging brands. A place where you can  <%= link_to "Launch a store", sell_path %> in minutes.</p>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-        <h3>Subscribe to our weekly newsletter.</h3>
-        <form class="" action="index.html" method="post">
-          <div class="input-group">
-            <label for=""></label>
-            <input type="text" class="form-control input-lg" id="" placeholder="">
-            <span class="input-group-btn"><button type="button" name="button" class="btn btn-danger btn-lg">Subscribe</button></span>
-          </div>
-
-        </form>
-
-      </div>
-      <div class="col-sm-6">
-        We shall help you convert your visitors to customers
-      </div>
-    </div>
-  </div>
-</section> -->

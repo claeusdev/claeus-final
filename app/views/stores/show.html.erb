@@ -4,7 +4,7 @@
     <div class="store-front-header">
       <div class="row">
         <div class="col-sm-12 text-center">
-          <h1 ><%= @store.name.capitalize %></h1>
+          <h1 class="store-name"><%= @store.name.capitalize %></h1>
           <p ><%= @store.tagline.capitalize %></p>
           <p >Owned by: <%= link_to @store.user.username, user_path(@store.user) %></p>
           <p><%= @store.all_tags %></p>

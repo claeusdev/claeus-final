@@ -20,7 +20,11 @@
   </head>
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
-  <body class="bg-white">
+  <% if current_page?(root_path) %>
+    <body class="bg-white">
+  <% else %>
+    <body class="bg-grey">
+  <% end %>
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
