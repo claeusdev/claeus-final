@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   resources :stores, :except => [:index] do
+    post 'follow', :to => 'followings#create'
+    delete 'unfollow', :to => 'followings#destroy'
     collection do
       get 'dashboard'
     end
@@ -13,8 +15,6 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
-
-  resource :relationships, only: [:create, :destroy]
 
   get 'index', :to => 'pages#index'
 

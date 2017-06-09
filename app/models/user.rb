@@ -1,6 +1,5 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable , :confirmable, :omniauthable, :omniauth_providers => [:facebook]
 
@@ -8,34 +7,25 @@ class User < ApplicationRecord
 
   has_one :store, dependent: :destroy
   has_many :reviews
-
-  has_many :active_relationships, class_name: "Relationship",
-                                  foreign_key: "follower_id",
-                                  dependent: :destroy
-  has_many :followings, through: :active_relationships, source: :followed
-
-  def follow(store)
-    active_relationships.create(followed_id: store.id)
+  has_many :notifications, foreign_key: :reciepient_id
+  
+  def following? store, user
+    store.follower_ids.include? user.id
   end
 
-
-  def unfollow(store)
-    active_relationships.find_by(followed_id: store.id).destroy
+  def follow (store, user)
+    store.followers << user
   end
 
-  def following?(store)
-    following_ids.include?(store.id)
+  def unfollow (store, user)
+    store.followers.delete(user.id)
   end
 
+  
 
   def full_name
     return "#{first_name} #{last_name}".strip if (first_name || last_name)
     "Anonymous"
-  end
-
-  def about_me
-    return "#{about}"  if (about)
-    "Im empty"
   end
 
 

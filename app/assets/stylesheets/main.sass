@@ -4,6 +4,8 @@ body
   font-size: 14px
   font-weight: normal
   color: $main-text
+  padding-top: 50px
+
 
 
 h1, h2, h3, h4, h5, h6
@@ -26,16 +28,30 @@ a
 .navbar-primary
   background-color: #fff
   margin-bottom: 0
+  padding: 10px auto
+
+.navbar .navbar-nav 
+  display: inline-block
+  float: none
+  vertical-align: top
+
+
+.navbar .navbar-collapse 
+  text-align: center
+
+
+#navSearch
+  input[type="text"]
+    width: 400px
+
+    @media screen and (max-width: 420px)
+      width: 100%
 
 
 .bg-white
   background-color: #fff
 
 
-
-.jumbotron
-  background-color: #fff
-  min-height: 250px
 
 
 .mb7
@@ -154,3 +170,7 @@ ul>li
   background-color: #fff
   border-bottom: 3px solid $red
   border-radius: 0
+
+.panel
+  border-radius: 0
+  border: none

@@ -23,12 +23,7 @@
                           <div class="text-center">
                               <h3>Your storefront views</h3>
                               <p class="lead">Your Store has been viewed: <strong><%= @store.impressionist_count %></strong> times</p>
-                              <p class="lead"><%= @store.followers.count %> Followers </p>
-                              <ul>
-                                <% @store.followers.each do |f| %>
-                                  <li><%= link_to f.username, f %></li>
-                                <% end %>
-                              </ul>
+                              
 
                           </div>
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170515013659) do
+ActiveRecord::Schema.define(version: 20170609033801) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 20170515013659) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "followings", force: :cascade do |t|
+    t.integer  "follower_id"
+    t.integer  "store_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["follower_id"], name: "index_followings_on_follower_id", using: :btree
+    t.index ["store_id"], name: "index_followings_on_store_id", using: :btree
   end
 
   create_table "impressions", force: :cascade do |t|
@@ -47,6 +56,17 @@ ActiveRecord::Schema.define(version: 20170515013659) do
     t.index ["user_id"], name: "index_impressions_on_user_id", using: :btree
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.integer  "reciepient_id"
+    t.integer  "actor_id"
+    t.datetime "read_at"
+    t.string   "action"
+    t.integer  "notifiable_id"
+    t.string   "notifiable_type"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -63,16 +83,6 @@ ActiveRecord::Schema.define(version: 20170515013659) do
     t.index ["slug"], name: "index_products_on_slug", using: :btree
     t.index ["store_id"], name: "index_products_on_store_id", using: :btree
     t.index ["subcategory_id"], name: "index_products_on_subcategory_id", using: :btree
-  end
-
-  create_table "relationships", force: :cascade do |t|
-    t.integer  "follower_id", null: false
-    t.integer  "followed_id", null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["followed_id", "follower_id"], name: "index_relationships_on_followed_id_and_follower_id", unique: true, using: :btree
-    t.index ["followed_id"], name: "index_relationships_on_followed_id", using: :btree
-    t.index ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -158,6 +168,7 @@ ActiveRecord::Schema.define(version: 20170515013659) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "followings", "stores"
   add_foreign_key "products", "stores"
   add_foreign_key "products", "subcategories"
   add_foreign_key "stores", "categories"

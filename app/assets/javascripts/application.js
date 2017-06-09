@@ -19,7 +19,6 @@
 //= require components
 //= require_tree
 
-
 $(document).ready(function() {
     $(".add-product").hide();
 

@@ -1,59 +1,67 @@
-<div class="home-hero bg-white">
+<section>
+    <div class="home-hero">
+      <div class="container-fluid">
+        <h1>Looking for something?</h1>
+        <p class="lead">From electronics to home decor, <strong>We got you!!!</strong></p>
+      </div>
+    </div>
+</section>
+
+<section class="page-section">
   <div class="container">
+    <h2 class="text-center">Shop by category</h2> 
     <div class="row">
-        <div class="col-sm-10 col-sm-offset-1">
-            <div class="">
-              <h1>Buy directly form Ghana's emerging brands.</h1>
-              <%= form_tag search_products_path,  method: :get do |f| %>
-                <div class="input-group input-group-lg">
-                  <%= text_field_tag :search, nil, placeholder: "Search products & stores", class: "form-control input-lg" %>
-                  <span class="input-group-btn"><%= submit_tag "Search", class: "btn btn-danger btn-lg" %></span>
-                </div>
-              <% end %>
-            </div>
+      <% @categories.each do |c| %>
+        <div class="col-md-3 col-sm-6 col-xs-12 col-lg-3">
+          <div class="card">
+            <%= link_to c.name, c %>
+          </div>
         </div>
+      <% end %>
+    
+      <p class="text-center mt10"><%= link_to "View all categories", categories_path %></p>
     </div>
   </div>
-</div>
-<section class="container">
-  <div class="row">
-    <div class="section mt10">
-      <div class="col-sm-12">
-        <ul class="nav nav-pills">
-            <li role="presentation" class="active"><a href="#latest_stores" data-toggle="tab"><strong>Latest Stores</strong></a></li>
-            <li role="presentation"><a href="#latest_products" data-toggle="tab"><strong>Products</strong></a></li>
-        </ul>
+</section>
+<section class="page-section">
+  <div class="container">
+    <h2 class="text-center">Latest Stores</h2>
+    <div class="row pt6">
+      <% @latest_stores.each do |s|%>
+      <div class="col-sm-12 col-md-6">
+        <div class="card">
+         <h3><%= link_to s.name, s %></h3>
+         <p>By <%= link_to s.user.username, s.user %></p> 
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</section>
 
-        <!-- Tab Panes -->
-
-          <div class="tab-content">
-            <div class="tab-pane fade in active" id="latest_stores">
-              <div class="row pt6">
-                <% @latest_stores.each do |s|%>
-                  <div class="col-sm-3 col-xs-6">
-                    <div class="caption">
-                      <p class="lead"><%= link_to s.name, s %></p>
-                    </div>
-                  </div>
-                  <% end %>
-                </div>
-            </div>
-            <div class="tab-pane fade in" id="latest_products">
-              <div class="row pt6">
-                <% @latest_products.each do |p| %>
-                  <div class="col-md-2 col-sm-2 col-xs-6 ">
-                    <div class="thumbnail">
-                      <%= image_tag(p.images[0]) %>
-                      <div class="caption">
-                        <h3><%= link_to p.name, p %></h3>
-                        <p class="amount"><%= number_to_currency(p.price, unit: "GHS") %></p>
-                      </div>
-                    </div>
-                  </div>
-                <% end %>
-              </div>
-            </div>
+<section class="page-section">
+  <h2 class="text-center">
+    Latest products
+  </h2>
+  <div class="row pt6">
+    <% @latest_products.each do |p| %>
+      <div class="col-md-2 col-sm-2 col-xs-6 ">
+        <div class="thumbnail">
+          <%= image_tag(p.images[0]) %>
+          <div class="caption">
+            <h3><%= link_to p.name, p %></h3>
+            <p class="amount"><%= number_to_currency(p.price, unit: "GHS") %></p>
           </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>
+<section class="bottom-cta">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h2>Claeus is the home of emerging brands. You can start <%= link_to "start selling", sell_path , class: 'base-link'%> online in 3 easy steps.</h2>
       </div>
     </div>
   </div>

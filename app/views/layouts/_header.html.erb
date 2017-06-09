@@ -1,6 +1,5 @@
-<nav class="navbar navbar-primary">
+<nav class="navbar navbar-primary navbar-fixed-top">
   <div class="container">
-
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar-collapse" aria-expanded="false">
@@ -13,19 +12,16 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div id="header-navbar-collapse" class="collapse navbar-collapse">
-      <div class="navbar-form navbar-left">
-        <% unless current_page?(root_path) %>
-            <div class="input-group">
-              <%= form_tag search_products_path,  method: :get do |f| %>
-                  <div class="input-group">
-                    <%= text_field_tag :search, nil, placeholder: "Search products & stores", class: "form-control" %>
-                    <span class="input-group-btn"><%= submit_tag "Search", class: "btn btn-danger" %></span>
-                  </div>
-                <% end %>
-            </div>
-          <% end %>
-      </div>
-
+        <div class="navbar-form navbar-left">
+          <div class="form-group"  id="navSearch">
+            <%= form_tag search_products_path,  method: :get do |f| %>
+              <div class="input-group">
+                <%= text_field_tag :search, nil, placeholder: "Search products & stores", class: "form-control"%>
+                <span class="input-group-btn"><%= submit_tag "Search", class: "btn btn-danger" %></span>
+              </div>
+            <% end %>
+          </div>
+        </div>
       <div class=" navbar-right">
           <ul class="nav navbar-nav">
           <% if user_signed_in? %>
