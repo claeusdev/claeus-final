@@ -1,12 +1,15 @@
 <% content_for :title, @store.name + " " + "on Claeus" %>
+<% content_for :description, @store.tagline  %>
 <div class="">
   <div class="store-front">
     <div class="store-front-header">
       <div class="row">
         <div class="col-sm-12 text-center">
           <h1 class="store-name"><%= @store.name.capitalize %></h1>
-          <p ><%= @store.tagline.capitalize %></p>
-          <p >Owned by: <%= link_to @store.user.username, user_path(@store.user) %></p>
+            <% if @store.tagline.present? %>
+              <p><%= @store.tagline.capitalize %></p>
+            <% end %>
+          <p>Owned by: <%= link_to @store.user.username, user_path(@store.user) %></p>
           <p><%= @store.all_tags %></p>
           <%= follow_button (@store) %>
         </div>
