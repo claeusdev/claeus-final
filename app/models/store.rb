@@ -7,6 +7,7 @@ class Store < ApplicationRecord
   belongs_to :user
   belongs_to :category
   
+  
   has_many :followings
   has_many :followers, through: :followings
 

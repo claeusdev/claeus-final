@@ -1,7 +1,6 @@
 class Product < ApplicationRecord
   mount_uploaders :images, ImageUploader
 
-
   belongs_to :store
   has_many :reviews
   belongs_to :category
@@ -11,17 +10,8 @@ class Product < ApplicationRecord
 
   before_validation :generate_slug
 
-
-
   def to_param
     "#{id}-#{name}".parameterize
-  end
-
-  def self.search(params)
-    if params[:search].present?
-      @products = Product.where("name LIKE ? or description LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%").order(created_at: :desc)
-    end
-    @products
   end
 
   def generate_slug

@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :notifications, foreign_key: :reciepient_id
   
+  # accepts_nested_attributes_for :store
+
   def following? store, user
     store.follower_ids.include? user.id
   end

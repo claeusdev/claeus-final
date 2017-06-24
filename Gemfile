@@ -38,6 +38,9 @@ gem 'omniauth-facebook'
 gem 'meta-tags'
 gem 'haml', '~> 5.0', '>= 5.0.1'
 
+gem "letter_opener", :group => :development
+gem 'wicked'
+
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.5'

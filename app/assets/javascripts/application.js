@@ -19,23 +19,18 @@
 //= require components
 //= require_tree
 
-$(document).ready(function() {
-    $(".add-product").hide();
-
-    $("#new-product").on("click", function() {
-        $(".add-product").show();
+$(document).ready(function () {
+  
+  setTimeout(function (){
+    $("#notice_wrapper").fadeOut("slow", function() {
+      $(this).remove();
     });
+  }, 1500);
 
-    setTimeout(function(){
-      $("#notice_wrapper").fadeOut("slow", function(){
-        $(this).remove();
-      });
-    }, 1500);
-
-    setTimeout(function(){
-      $("#alert_wrapper").fadeOut("slow", function(){
-        $(this).remove();
-      });
-    }, 1500);
+  setTimeout(function (){
+    $("#alert_wrapper").fadeOut("slow", function() {
+      $(this).remove();
+    });
+  }, 1500);
 
 });

@@ -1,0 +1,2 @@
+class SteppyController < ApplicationController
+end

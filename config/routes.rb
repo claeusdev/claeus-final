@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resource :search, only: [:show]
   resources :stores, :except => [:index] do
     post 'follow', :to => 'followings#create'
     delete 'unfollow', :to => 'followings#destroy'

@@ -3,7 +3,14 @@
   <div class="container">
     <div class="row  mb7">
       <div class="col-sm-8 col-sm-offset-2">
-        <%= render "form" %>
+      	<div class="panel panel-danger">
+      		<div class="panel-heading">
+      		<p class="lead">Edit <%= @product.name %></p></div>
+      		<div class="panel-body">
+      		<br>
+      			<%= render "form" %>
+      		</div>
+      	</div>
       </div>
     </div>
   </div>

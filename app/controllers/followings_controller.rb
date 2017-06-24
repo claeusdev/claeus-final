@@ -5,7 +5,7 @@ class FollowingsController < ApplicationController
   def create
     current_user.follow(@store, current_user)
     @user = @store.user
-    # FollowMailer.follow_message(@user).deliver
+    FollowMailer.follow_message(@user).deliver
     # Notification.create(reciepient: @user, actor: current_user, action: "Youve been followed", notifiable: @store )
     redirect_to @store, notice: "You have successfully followed!!"
   end
@@ -13,7 +13,7 @@ class FollowingsController < ApplicationController
   def destroy
     current_user.unfollow(@store, current_user)
     @user = @store.user
-    # FollowMailer.unfollow_message(@user).deliver
+    FollowMailer.unfollow_message(@user).deliver
     redirect_to @store, notice: "You just unfollowed this store!!"
   end
 
